@@ -7,4 +7,4 @@ $router = new Router();
 /*
 *   Main Page
 */
-$router->add("/", "pages/welcome.php");
+$router->add("/", "pages/home.php");

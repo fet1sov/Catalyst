@@ -1,1 +1,7 @@
-<h1>WELCOME TO WTFRAMEWORK APP</h1>
+<?php
+Renderer::includeTemplate("layout.php", [
+    "layout_path" => "home/home_page.php",
+    "layout_data" => [
+
+    ]
+]);
