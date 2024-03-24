@@ -2,5 +2,9 @@
     "navigationBar": {
         "authButton": "Log In",
         "joinButton": "Join"
+    },
+    "agencyDescription": {
+        "mainDescription": "Take your brand to the next level with the Catalyst marketing agency!",
+        "secondaryDescription": "Let's create your success together and take your business to new heights. Trust us your advertising."
     }
 }

@@ -1,0 +1,14 @@
+div.description-block {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+div.description-block .secondary-description {
+    color: var(--secondary-color-02);
+}
+
+div.description-block h2 {
+    font-size: 48px;
+    font-weight: bold;
+}

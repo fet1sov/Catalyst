@@ -3,7 +3,7 @@
     --primary-color-02: #9b0000;
 
     --secondary-color-01: #FFFFFF;
-    --secondary-color-02: #bdbdbd;
+    --secondary-color-02: #a0a0a0;
 }
 
 @font-face {
@@ -35,7 +35,16 @@
 }
 
 body {
+    background-color: var(--secondary-color-01);
+
     font-family: 'Montserrat', 'Segoe UI', Tahoma, sans-serif;
+    margin: 0 auto;
+
+    width: 60%;
+}
+
+.container {
+    margin-top: 30px;
 }
 
 a:hover {
@@ -49,7 +58,7 @@ header {
 
 header .navigation {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 
     padding-top: 20px;
@@ -59,6 +68,7 @@ header .navigation {
 header .logo {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 header .logo p {
@@ -106,4 +116,10 @@ header .logo:hover .logotype #logotype-logo-svg
 .link-button.outlined {
     background-color: transparent;
     color: black;
+}
+
+@media (width <= 1024px) {
+    body {
+        width: 100%;
+    }
 }
