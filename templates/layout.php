@@ -8,6 +8,10 @@
 
 <body>
     <?php
+        Renderer::includeTemplate("elems/header.php", []);
+    ?>
+    
+    <?php
         Renderer::includeTemplate($layout_path, $layout_data);
     ?>
 </body>
