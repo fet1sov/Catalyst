@@ -24,6 +24,15 @@
     }
 }
 
+@keyframes appearAnimation-Y {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 * {
     transition: 0.5s all;
 }
@@ -43,10 +52,6 @@ body {
     width: 60%;
 }
 
-.container {
-    margin-top: 30px;
-}
-
 a:hover {
     color: var(--primary-color-01);
 }
@@ -56,9 +61,14 @@ header {
     animation-duration: 0.5s;
 }
 
-header .navigation {
+header nav.navigation {
+    position: fixed;
+
+    right: 0;
+    left: 0;
+
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 
     padding-top: 20px;
@@ -121,5 +131,9 @@ header .logo:hover .logotype #logotype-logo-svg
 @media (width <= 1024px) {
     body {
         width: 100%;
+    }
+
+    header nav.navigation {
+        justify-content: space-between;
     }
 }

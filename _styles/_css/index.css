@@ -2,6 +2,9 @@ div.description-block {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+
+    animation-name: appearAnimation-Y;
+    animation-duration: 0.5s;
 }
 
 div.description-block .secondary-description {
@@ -11,4 +14,11 @@ div.description-block .secondary-description {
 div.description-block h2 {
     font-size: 48px;
     font-weight: bold;
+}
+
+section {
+    display: flex;
+    align-items: center;
+
+    height: 100vh;
 }
