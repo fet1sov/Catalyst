@@ -1,0 +1,6 @@
+{
+    "navigationBar": {
+        "authButton": "Войти",
+        "joinButton": "Регистрация"
+    }
+}

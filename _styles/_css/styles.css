@@ -1,0 +1,25 @@
+:root {
+    
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../_fonts/montserrat-v26-latin-regular.woff2') format('woff2'), 
+         url('../_fonts/montserrat-v26-latin-regular.ttf') format('truetype'); 
+}
+
+body {
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
