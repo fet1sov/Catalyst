@@ -1,2 +1,2 @@
-# Ignoring the upload folder
-data/*
+# Ignoring all uploads on the website
+uploads/*
