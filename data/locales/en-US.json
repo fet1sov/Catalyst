@@ -1,4 +1,5 @@
 {
+    "moreButton": "More",
     "navigationBar": {
         "authButton": "Log In",
         "joinButton": "Join"

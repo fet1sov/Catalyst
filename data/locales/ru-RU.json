@@ -1,4 +1,5 @@
 {
+    "moreButton": "Подробнее",
     "navigationBar": {
         "authButton": "Войти",
         "joinButton": "Регистрация"
