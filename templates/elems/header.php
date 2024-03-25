@@ -9,7 +9,7 @@
                 <p>Agency</p>
             </div>
         </a>
-        
+
         <div class="auth-buttons">
             <a class="link-button" href="/auth"><?= $GLOBALS["locale"]["navigationBar"]["authButton"] ?></a>
             <a class="link-button outlined" href="/register"><?= $GLOBALS["locale"]["navigationBar"]["joinButton"] ?></a>

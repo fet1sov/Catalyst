@@ -1,6 +1,7 @@
 :root {
     --primary-color-01: #e10000;
     --primary-color-02: #9b0000;
+    --primary-color-03: #ff3030;
 
     --secondary-color-01: #FFFFFF;
     --secondary-color-02: #a0a0a0;
@@ -35,6 +36,12 @@
 
 * {
     transition: 0.5s all;
+    scroll-behavior: smooth;
+}
+
+span.red-text {
+    color: var(--primary-color-01);
+    text-shadow: var(--primary-color-03) 0px 0px 50px;
 }
 
 .divider-line {
