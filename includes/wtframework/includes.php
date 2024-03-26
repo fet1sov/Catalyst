@@ -7,6 +7,8 @@
 *   @author fet1sov <prodaugust21@gmail.com>
 */
 
+session_start();
+
 /* Loading all modules */
 $modules = glob(__DIR__ . '/*.php');
 foreach ($modules as $module) {

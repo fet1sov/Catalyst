@@ -22,9 +22,15 @@ div.description-block h2 {
     font-weight: bold;
 }
 
-section {
+.offer-block {
     display: flex;
-    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
-    height: 100vh;
+@media (max-width: 600px) {
+    #contactForm {
+        display: flex;
+        flex-direction: column;
+    }
 }
