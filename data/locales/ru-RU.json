@@ -1,6 +1,10 @@
 {
     "moreButton": "Подробнее",
     "placeholders": {
+        "login": "Имя пользователя",
+        "password": "Пароль",
+        "repeatPassowrd": "Повторите пароль",
+
         "name": "Ваше имя",
         "company": "Компания",
         "email": "Контактный E-mail",

@@ -1,6 +1,10 @@
 {
     "moreButton": "More",
     "placeholders": {
+        "login": "Login",
+        "password": "Password",
+        "repeatPassowrd": "Repeat password",
+
         "name": "Your name",
         "company": "Company name",
         "email": "Contact E-mail",
