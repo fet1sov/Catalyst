@@ -1,0 +1,26 @@
+section {
+    display: flex;
+    justify-content: center;
+}
+
+form.secondary-form {
+    display: flex;
+    flex-direction: column;
+    
+    background-color: var(--secondary-color-04);
+    border-radius: 10px;
+
+    padding: 30px;
+}
+
+form.secondary-form :nth-child(n) {
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: var(--primary-color-01);
+}
+
+button:hover {
+    background-color: var(--primary-color-02);
+}
