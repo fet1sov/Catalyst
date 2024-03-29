@@ -3,7 +3,7 @@
     "placeholders": {
         "login": "Имя пользователя",
         "password": "Пароль",
-        "repeatPassowrd": "Повторите пароль",
+        "repeatPassword": "Повторите пароль",
 
         "name": "Ваше имя",
         "company": "Компания",
@@ -11,7 +11,10 @@
 
         "contactButton": "Связаться"
     },
-
+    "titles": {
+        "authorization": "Авторизация",
+        "registration": "Регистрация"
+    },
     "navigationBar": {
         "authButton": "Войти",
         "joinButton": "Регистрация"

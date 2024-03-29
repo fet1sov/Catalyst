@@ -3,13 +3,17 @@
     "placeholders": {
         "login": "Login",
         "password": "Password",
-        "repeatPassowrd": "Repeat password",
+        "repeatPassword": "Repeat password",
 
         "name": "Your name",
         "company": "Company name",
         "email": "Contact E-mail",
 
         "contactButton": "Contact us"
+    },
+    "titles": {
+        "authorization": "Log In",
+        "registration": "Registration"
     },
     "navigationBar": {
         "authButton": "Log In",

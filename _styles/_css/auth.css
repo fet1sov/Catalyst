@@ -13,6 +13,16 @@ form.secondary-form {
     padding: 30px;
 }
 
+form.secondary-form .title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    font-size: 24px;
+
+    font-weight: bold;
+}
+
 form.secondary-form :nth-child(n) {
     margin-bottom: 10px;
 }
