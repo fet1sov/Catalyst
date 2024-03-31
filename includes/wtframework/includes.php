@@ -14,3 +14,14 @@ $modules = glob(__DIR__ . '/*.php');
 foreach ($modules as $module) {
     require_once($module);
 }
+
+/* Loading all database */
+$modules = glob(__DIR__ . '/database/*.php');
+foreach ($modules as $module) {
+    require_once($module);
+}
+
+$modules = glob(__DIR__ . '/database/entities/*.php');
+foreach ($modules as $module) {
+    require_once($module);
+}
