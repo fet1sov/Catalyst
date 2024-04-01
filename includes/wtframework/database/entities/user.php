@@ -7,7 +7,7 @@
 *   @author fet1sov <prodaugust21@gmail.com>
 */
 
-class User {
+class User extends DatabaseEntity {
     protected $id = 0;
     protected $username = "";
     protected $password = "";
@@ -52,45 +52,5 @@ class User {
                 }
             }
         }
-    }
-
-    public function getUsername() : ?string
-    {
-        return $this->username;
-    }
-
-    public function setUsername($username) : void
-    {
-        $this->username = $username;
-    }
-
-    public function getPassword() : ?string
-    {
-        return $this->password;
-    }
-
-    public function setPassword($password) : void
-    {
-        $this->password = $password;
-    }
-
-    public function getCompany() : ?string
-    {
-        return $this->company;
-    }
-
-    public function setCompany($company) : void
-    {
-        $this->company = $company;
-    }
-
-    public function getEmail() : ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail($email) : void
-    {
-        $this->email = $email;
     }
 }
