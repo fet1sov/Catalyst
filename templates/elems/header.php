@@ -11,8 +11,12 @@
         </a>
 
         <div class="auth-buttons">
-            <a class="link-button" href="/auth"><?= $GLOBALS["locale"]["navigationBar"]["authButton"] ?></a>
-            <a class="link-button outlined" href="/register"><?= $GLOBALS["locale"]["navigationBar"]["joinButton"] ?></a>
+            <?php if (!isset($_SESSION["UserData"])) { ?>
+                <a class="link-button" href="/auth"><?= $GLOBALS["locale"]["navigationBar"]["authButton"] ?></a>
+                <a class="link-button outlined" href="/register"><?= $GLOBALS["locale"]["navigationBar"]["joinButton"] ?></a>
+            <?php } else { ?>
+                <a href=""><?= $_SESSION["UserData"]->getUsername(); ?></a>
+            <?php } ?>
         </div>
     </nav>
 </header>

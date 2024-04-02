@@ -37,7 +37,7 @@ class User extends DatabaseEntity {
                 if (count($userData))
                 {
                     $stmt = $GLOBALS["dbAdapter"]->prepare("INSERT INTO `user`(`id`, `username`, `password`, `company`, `email`) VALUES (NULL, ?, ?, ?, ?)");
-                    $stmt->bind_param('s, s, s, s, s', 
+                    $stmt->bind_param('ssss', 
                     $userData["username"],
                     md5($userData["password"]),
                     $userData["company"],
@@ -45,12 +45,29 @@ class User extends DatabaseEntity {
                     );
                     $stmt->execute();
 
+                    $this->id = $GLOBALS["dbAdapter"]->insert_id;
                     $this->username = $userData["username"];
                     $this->password = md5($userData["password"]);
                     $this->company = $userData["company"];
                     $this->email = $userData["email"];
                 }
             }
+        } else {
+            $stmt = $GLOBALS["dbAdapter"]->prepare("INSERT INTO `user`(`id`, `username`, `password`, `company`, `email`) VALUES (NULL, ?, ?, ?, ?)");
+            $stmt->bind_param(
+                'ssss',
+                $userData["username"],
+                md5($userData["password"]),
+                $userData["company"],
+                $userData["email"]
+            );
+            $stmt->execute();
+
+            $this->id = $GLOBALS["dbAdapter"]->insert_id;
+            $this->username = $userData["username"];
+            $this->password = md5($userData["password"]);
+            $this->company = $userData["company"];
+            $this->email = $userData["email"];
         }
     }
 }
