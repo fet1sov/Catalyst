@@ -47,7 +47,7 @@ class User extends DatabaseEntity {
 
                     $this->id = $GLOBALS["dbAdapter"]->insert_id;
                     $this->username = $userData["username"];
-                    $this->password = md5($userData["password"]);
+                    $this->password = $userData["password"];
                     $this->company = $userData["company"];
                     $this->email = $userData["email"];
                 }
@@ -69,5 +69,19 @@ class User extends DatabaseEntity {
             $this->company = $userData["company"];
             $this->email = $userData["email"];
         }
+    }
+
+    public function saveData() : void
+    {
+        $stmt = $GLOBALS["dbAdapter"]->prepare("UPDATE `user` SET `username`=?, `password`=?, `company`=?, `email`=? WHERE `id`=?");
+        $stmt->bind_param(
+            'ssss',
+            $this->username,
+            $this->password,
+            $this->company,
+            $this->email,
+            $this->id
+        );
+        $stmt->execute();
     }
 }
