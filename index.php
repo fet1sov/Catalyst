@@ -1,17 +1,18 @@
 <?php
 
 require("includes/wtframework/includes.php");
+require("globals.php");
 
 $router = new Router();
 
 /*
 *   Main Page
 */
-$router->add("/", "pages/home.php");
+$router->add("/", "routes/index/index.ctrl.php");
 
 
 /*
 *   Authorization Pages
 */
-$router->add("/auth", "pages/auth.php");
-$router->add("/register", "pages/register.php");
+$router->add("/auth", "routes/auth/auth.ctrl.php");
+$router->add("/register", "routes/register/register.ctrl.php");

@@ -13,14 +13,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
 
         var_dump($_SESSION["UserData"]);
     } else {
-        Renderer::includeTemplate("layout.php", [
-            "layout_path" => "auth/register_page.php",
+        Renderer::includeTemplate("frontend/components/layout.php", [
+            "layout_path" => "routes/register/register.view.php",
             "layout_data" => []
         ]);
     }
 } else {
-    Renderer::includeTemplate("layout.php", [
-        "layout_path" => "auth/register_page.php",
+    Renderer::includeTemplate("frontend/components/layout.php", [
+        "layout_path" => "routes/register/register.view.php",
         "layout_data" => []
     ]);
 }
