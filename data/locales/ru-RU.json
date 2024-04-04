@@ -11,6 +11,11 @@
 
         "contactButton": "Связаться"
     },
+    "errors": {
+        "alreadyRegistered": "Имя пользователя уже используется",
+        "notEqualPassword": "Пароли не совпадают",
+        "wrongAuthData": "Неверный логин или пароль"
+    },
     "titles": {
         "authorization": "Авторизация",
         "registration": "Регистрация"

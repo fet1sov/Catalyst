@@ -8,7 +8,7 @@
 */
 class Router
 {
-    private function addRoute($file, $route){
+    private function addRoute(string $file, string $route){
         if(!empty($_REQUEST['uri'])){
             $route = preg_replace("/(^\/)|(\/$)/","",$route);
             $reqUri =  preg_replace("/(^\/)|(\/$)/","",$_REQUEST['uri']);
@@ -29,7 +29,7 @@ class Router
     * @param string $route Web path
     * @param string $file PHP Script which will be executed by path
     */
-    public function add($route, $file) {
+    public function add(string $route, string $file) {
         $params = [];
 
         $paramKey = [];

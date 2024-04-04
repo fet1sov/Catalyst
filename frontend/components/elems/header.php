@@ -11,11 +11,11 @@
         </a>
 
         <div class="auth-buttons">
-            <?php if (!isset($_SESSION["UserData"])) { ?>
+            <?php if (!isset($_SESSION["userData"])) { ?>
                 <a class="link-button" href="/auth"><?= $GLOBALS["locale"]["navigationBar"]["authButton"] ?></a>
                 <a class="link-button outlined" href="/register"><?= $GLOBALS["locale"]["navigationBar"]["joinButton"] ?></a>
             <?php } else { ?>
-                <a href=""><?= $_SESSION["UserData"]->getUsername(); ?></a>
+                <a href=""><?= unserialize($_SESSION["userData"])->getUsername(); ?></a>
             <?php } ?>
         </div>
     </nav>

@@ -11,6 +11,11 @@
 
         "contactButton": "Contact us"
     },
+    "errors": {
+        "alreadyRegistered": "Username already in use",
+        "notEqualPassword": "Password doesn't match",
+        "wrongAuthData": "Wrong username or password"
+    },
     "titles": {
         "authorization": "Log In",
         "registration": "Registration"

@@ -9,6 +9,10 @@
         <input type="password" name="password" placeholder="<?= $GLOBALS["locale"]["placeholders"]["password"] ?>">
         <input type="password" name="repeatpassword" placeholder="<?= $GLOBALS["locale"]["placeholders"]["repeatPassword"] ?>">
 
+        <? if (isset($error_message)) { ?>
+            <div class="error-message"><?= $error_message["message"] ?></div>
+        <? } ?>
+
         <input class="button-primary" type="submit" value="<?= $GLOBALS["locale"]["navigationBar"]["joinButton"] ?>">
     </form>
 </section>

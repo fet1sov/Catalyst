@@ -15,7 +15,7 @@ class Renderer {
     * @param array $data Associative array of data
     * @return string HTML Dom tree in string
     */
-    public static function getRawTemplate($path, array $data = []) : ?string
+    public static function getRawTemplate(string $path, array $data = []) : ?string
     {
         extract($data);
         ob_start();
@@ -33,7 +33,7 @@ class Renderer {
     * @param string $path Relative path from templates folder 
     * @param array $data Associative array of data
     */
-    public static function includeTemplate($path, array $data = []) : void
+    public static function includeTemplate(string $path, array $data = []) : void
     {
         extract($data);
         ob_start();
