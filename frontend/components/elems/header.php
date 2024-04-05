@@ -15,7 +15,10 @@
                 <a class="link-button" href="/auth"><?= $GLOBALS["locale"]["navigationBar"]["authButton"] ?></a>
                 <a class="link-button outlined" href="/register"><?= $GLOBALS["locale"]["navigationBar"]["joinButton"] ?></a>
             <?php } else { ?>
-                <a href=""><?= unserialize($_SESSION["userData"])->getUsername(); ?></a>
+                <div class="profile-block">
+                    <img src="/api/avatar?id=<?= unserialize($_SESSION["userData"])->getId(); ?>">
+                    <a href="/user"><?= unserialize($_SESSION["userData"])->getUsername(); ?></a>
+                </div>
             <?php } ?>
         </div>
     </nav>
