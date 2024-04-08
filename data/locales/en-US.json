@@ -29,6 +29,9 @@
         "secondaryDescription": "Let's create your success together and take your business to new heights. Trust us your advertising.",
 
         "aboutusBlockName": "What we offer",
-        "formBlockName": "Still not sure? Contact us"
+        "formBlockName": "Still not sure? <br> Contact us"
+    },
+    "userMenu": {
+        "logout": "Log out"
     }
 }

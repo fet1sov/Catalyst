@@ -21,3 +21,8 @@ $router->add("/register", "routes/register/register.ctrl.php");
 *   User routes
 */
 $router->add("/user", "routes/user/user.ctrl.php");
+
+/*
+*   API routes
+*/
+$router->add("/api/{category}", "routes/api/api.ctrl.php");
