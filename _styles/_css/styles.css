@@ -282,10 +282,6 @@ div.user-menu .logout a {
         width: 100%;
     }
 
-    section {
-        height: 60vh;
-    }
-
     header nav.navigation {
         justify-content: space-between;
     }
