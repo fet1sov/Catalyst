@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
                 "layout_path" => "routes/register/register.view.php",
                 "layout_data" => [
                     "error_message" => [
-                        "message" => $GLOBALS["locale"]["errors"]["alreadyRegistered"]
+                        "message" => var_dump($databaseException)
                     ]
                 ]
             ]);

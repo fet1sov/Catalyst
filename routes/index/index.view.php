@@ -39,7 +39,7 @@
                 </h2>
             </div>
             
-
+        <br>
             <div>
                 <form class="primary-form" method="POST" action="/register">
                     <input type="text" name="name" placeholder="<?= $GLOBALS["locale"]["placeholders"]["name"] ?>">
