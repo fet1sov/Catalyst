@@ -28,6 +28,11 @@ div.description-block h2 {
     flex-direction: column;
 }
 
+.offer-block div h2{
+    margin-right: 50px;
+    
+}
+
 @media (max-width: 600px) {
     #contactForm {
         display: flex;
