@@ -6,7 +6,6 @@
 *
 *   @author fet1sov <prodaugust21@gmail.com>
 */
-
 class User extends DatabaseEntity {
     public $id = 0;
     public $username = "";
@@ -40,7 +39,7 @@ class User extends DatabaseEntity {
             } else {
                 if (count($userData))
                 {
-                    $stmt = $GLOBALS["dbAdapter"]->prepare("INSERT INTO `user`(`id`, `username`, `password`, `company`, `email`) VALUES (NULL, ?, ?, ?, ?)");
+                    $stmt = $GLOBALS["dbAdapter"]->prepare("INSERT INTO `user`(`username`, `password`, `company`, `email`) VALUES (?, ?, ?, ?)");
                     $stmt->bind_param('ssss', 
                     $userData["username"],
                     md5($userData["password"]),
@@ -57,7 +56,7 @@ class User extends DatabaseEntity {
                 }
             }
         } else {
-            $stmt = $GLOBALS["dbAdapter"]->prepare("INSERT INTO `user`(`id`, `username`, `password`, `company`, `email`) VALUES (NULL, ?, ?, ?, ?)");
+            $stmt = $GLOBALS["dbAdapter"]->prepare("INSERT INTO `user`(`username`, `password`, `company`, `email`) VALUES (?, ?, ?, ?)");
             $stmt->bind_param(
                 'ssss',
                 $userData["username"],
