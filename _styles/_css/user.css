@@ -1,0 +1,5 @@
+section.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

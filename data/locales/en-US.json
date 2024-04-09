@@ -18,7 +18,8 @@
     },
     "titles": {
         "authorization": "Log In",
-        "registration": "Registration"
+        "registration": "Registration",
+        "profileTitle": "Your profile"
     },
     "navigationBar": {
         "authButton": "Log In",

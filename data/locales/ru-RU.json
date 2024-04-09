@@ -18,7 +18,8 @@
     },
     "titles": {
         "authorization": "Авторизация",
-        "registration": "Регистрация"
+        "registration": "Регистрация",
+        "profileTitle": "Ваш профиль"
     },
     "navigationBar": {
         "authButton": "Войти",
