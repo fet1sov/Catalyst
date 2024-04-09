@@ -20,7 +20,7 @@ $router->add("/register", "routes/register/register.ctrl.php");
 /*
 *   User routes
 */
-$router->add("/user", "routes/user/user.ctrl.php");
+$router->add("/user/{category}", "routes/user/user.ctrl.php");
 
 /*
 *   API routes

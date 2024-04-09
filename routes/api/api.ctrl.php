@@ -1,10 +1,16 @@
 <?php
 
-$avatarFilePath = $_SERVER["DOCUMENT_ROOT"] . '/uploads/avatars/no_avatar.png';
+$avatarsPath = $_SERVER["DOCUMENT_ROOT"] . '/uploads/avatars/';
+
+if (isset($_REQUEST["userid"]) && file_exists())
+{
+    $avatarFilePath = $avatarsPath . $_REQUEST["userid"] . ".png";
+} else {
+    $avatarFilePath = $avatarsPath . 'no_avatar.png';
+}
+
 $fp = fopen($avatarFilePath, 'rb');
-// send the right headers
 header("Content-Type: image/png");
 header("Content-Length: " . filesize($name));
-// dump the picture and stop the script
 fpassthru($fp);
 exit;
