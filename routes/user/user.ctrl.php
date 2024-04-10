@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
     Renderer::includeTemplate("frontend/components/layout.php", [
         "layout_path" => "routes/user/user.view.php",
         "layout_data" => [
-            "userData" => unserialize($_SESSION["userData"])
+            "footerShow" => false
         ]
     ]);
 }

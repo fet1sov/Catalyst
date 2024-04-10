@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
         if (md5($_POST["password"]) == $userData["password"])
         {
             $_SESSION["userData"] = serialize(new User($userData["id"]));
-            header("Location: /");
+            header("Location: /user");
         } else {
             Renderer::includeTemplate("frontend/components/layout.php", [
                 "layout_path" => "routes/auth/auth.view.php",

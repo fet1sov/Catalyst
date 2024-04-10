@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
             new User(0, [
                 "username" => $_POST["username"],
                 "password" => $_POST["password"],
-                "company" => $_POST["company"],
+                "company" => isset($_POST["company"]) ? $_POST["company"] : "",
                 "email" => $_POST["email"],
             ]);
         } catch (mysqli_sql_exception $databaseException) {

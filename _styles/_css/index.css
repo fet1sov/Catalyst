@@ -37,4 +37,16 @@ div.description-block h2 {
         display: flex;
         flex-direction: column;
     }
+
+    div.description-block {
+        flex-direction: column;
+    }
+
+    div.description-block:nth-child(n) {
+        margin-bottom: 10px;
+    }
+
+    form.primary-form {
+        margin-top: 50px;
+    }
 }

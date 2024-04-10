@@ -21,7 +21,7 @@
 
 <footer>
     <?php
-        isset($layout_data) && $layout_data["footerShow"] ? Renderer::includeTemplate($GLOBALS["wtfFrontend"]["componentsPath"] . "elems/footer.php") : "";
+        isset($layout_data["footerShow"]) && $layout_data["footerShow"] ? Renderer::includeTemplate($GLOBALS["wtfFrontend"]["componentsPath"] . "elems/footer.php") : "";
     ?>
 </footer>
 
