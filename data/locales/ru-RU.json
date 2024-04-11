@@ -14,7 +14,13 @@
     "errors": {
         "alreadyRegistered": "Имя пользователя уже используется",
         "notEqualPassword": "Пароли не совпадают",
-        "wrongAuthData": "Неверный логин или пароль"
+        "wrongAuthData": "Неверный логин или пароль",
+        "httpError": {
+            "404": {
+                "message": " мы не нашли этого места",
+                "description": "Страница не найдена и стала недоступна"
+            }
+        }
     },
     "titles": {
         "authorization": "Авторизация",

@@ -14,7 +14,13 @@
     "errors": {
         "alreadyRegistered": "Username already in use",
         "notEqualPassword": "Password doesn't match",
-        "wrongAuthData": "Wrong username or password"
+        "wrongAuthData": "Wrong username or password",
+        "httpError": {
+            "404": {
+                "message": " we didn't found this place :(",
+                "description": "Page not found or not avaible anymore"
+            }
+        }
     },
     "titles": {
         "authorization": "Log In",

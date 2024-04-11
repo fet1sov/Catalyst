@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
             ]);
         } catch (mysqli_sql_exception $databaseException) {
             Renderer::includeTemplate("frontend/components/layout.php", [
-                "layout_path" => "routes/register/register.view.php",
+                "layout_path" => ROUTE_ROOT . "register/register.view.php",
                 "layout_data" => [
                     "error_message" => [
                         "message" => var_dump($databaseException)
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
         exit();
     } else {
         Renderer::includeTemplate("frontend/components/layout.php", [
-            "layout_path" => "routes/register/register.view.php",
+            "layout_path" => ROUTE_ROOT . "register/register.view.php",
             "layout_data" => [
                 "error_message" => [
                     "message" => $GLOBALS["locale"]["errors"]["notEqualPassword"]
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
     }
 } else {
     Renderer::includeTemplate("frontend/components/layout.php", [
-        "layout_path" => "routes/register/register.view.php",
+        "layout_path" => ROUTE_ROOT . "register/register.view.php",
         "layout_data" => []
     ]);
 }

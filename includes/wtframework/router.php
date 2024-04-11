@@ -83,4 +83,14 @@ class Router
             exit();
         }
     }
+
+    /**
+    * If route doesn't exists
+    * 404 Error
+    * @param string $script PHP Script which will be executed by path
+    */
+    public function pageNotFound($script){
+        include($script);
+        exit();
+    }
 }

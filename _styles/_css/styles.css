@@ -226,6 +226,12 @@ div.profile-block {
     position: relative;
 }
 
+div.profile-block a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 div.user-menu { 
     display: none;
     top: 40px;
