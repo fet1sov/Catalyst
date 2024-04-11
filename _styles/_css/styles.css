@@ -27,11 +27,13 @@
     }
 }
 
-@keyframes appearAnimation-Y {
+@keyframes appearAnimation-X {
     from {
+        margin-left: -20px;
         opacity: 0;
     }
     to {
+        margin-left: 0;
         opacity: 1;
     }
 }
@@ -236,7 +238,7 @@ div.user-menu {
     display: none;
     top: 40px;
 
-    border-radius: 0px 0px 10px 10px;
+    border-radius: 10px;
     padding: 10px;
     -webkit-box-shadow: 0px 11px 26px 0px rgba(0,0,0,0.28);
     -moz-box-shadow: 0px 11px 26px 0px rgba(0,0,0,0.28);
@@ -247,6 +249,9 @@ div.profile-block:hover div.user-menu {
     display: flex;
 
     position: absolute;
+
+    animation-name: appearAnimation;
+    animation-duration: 0.5s;
 }
 
 div.user-menu ul {
@@ -281,6 +286,12 @@ div.user-menu .logout svg path,
 div.user-menu .logout a {
     fill: var(--primary-color-01);
     color: var(--primary-color-01);
+}
+
+img.small-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
 }
 
 /* Small Desktop */

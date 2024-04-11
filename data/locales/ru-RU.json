@@ -25,7 +25,14 @@
     "titles": {
         "authorization": "Авторизация",
         "registration": "Регистрация",
-        "profileTitle": "Ваш профиль"
+        "profileTitle": "Личный кабинет"
+    },
+    "userPage": {
+        "greetings": {
+            "goodmorning": "Доброе утро, ",
+            "goodday": "Хорошего дня, ",
+            "goodnight": "Доброй ночи, "
+        }
     },
     "navigationBar": {
         "authButton": "Войти",

@@ -27,6 +27,13 @@
         "registration": "Registration",
         "profileTitle": "Your profile"
     },
+    "userPage": {
+        "greetings": {
+            "goodmorning": "Good morning, ",
+            "goodday": "Have nice day, ",
+            "goodnight": "Good night, "
+        }
+    },
     "navigationBar": {
         "authButton": "Log In",
         "joinButton": "Join"
