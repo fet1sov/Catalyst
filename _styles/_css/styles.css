@@ -238,6 +238,8 @@ div.user-menu {
     display: none;
     top: 40px;
 
+    width: 150px;
+
     border-radius: 10px;
     padding: 10px;
     -webkit-box-shadow: 0px 11px 26px 0px rgba(0,0,0,0.28);
@@ -262,9 +264,9 @@ div.user-menu ul {
 
 div.user-menu ul li {
     display: flex;
-    justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: left;
+    margin-bottom: 10px;
 } 
 
 div.user-menu svg {

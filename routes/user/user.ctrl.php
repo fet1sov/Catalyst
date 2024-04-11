@@ -13,6 +13,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
                 header('Location: /');
                 break;
             }
+
+            case "settings": {
+                Renderer::includeTemplate("frontend/components/layout.php", [
+                    "layout_path" => "routes/user/user.view.php",
+                    "layout_data" => [
+                        "category" => $params['category'],
+                        "footerShow" => false
+                    ]
+                ]);
+                break;
+            }
         }
     } else {
         Renderer::includeTemplate("frontend/components/layout.php", [

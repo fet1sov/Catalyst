@@ -50,31 +50,43 @@
     });
 </script>
 
-<section class="user-info">
-    <div id="profileBlock">
-        <div id="welcomeMessage">
-            <?
-                $time = date("H");
-            ?>
+<?php if (isset($category)) { 
+        switch($category) { 
+            case "settings": { ?>
+            <section>
+                <form method="post">
 
-            <? if ($time < "12") { ?>
-                <h2><?= $GLOBALS["locale"]["userPage"]["greetings"]["goodmorning"] ?><?= unserialize($_SESSION["userData"])->getUsername(); ?></h2>
-            <? } else if ($time >= "12" && $time < "17") { ?>
-                <h2><?= $GLOBALS["locale"]["userPage"]["greetings"]["goodday"] ?><?= unserialize($_SESSION["userData"])->getUsername(); ?></h2>
-            <? } else if ($time >= "19") { ?>
-                <h2><?= $GLOBALS["locale"]["userPage"]["greetings"]["goodnight"] ?><?= unserialize($_SESSION["userData"])->getUsername(); ?></h2>
-            <? } ?>
-        </div>
+                </form>
+            </section>
+        <?php } 
+        }
+} else { ?>
+    <section class="user-info">
+        <div id="profileBlock">
+            <div id="welcomeMessage">
+                <?
+                    $time = date("H");
+                ?>
 
-        <div id="profileInfo" style="display: none;">
-            <h2><?= $GLOBALS["locale"]["titles"]["profileTitle"] ?></h2>
-            <div class="profile-block">
-                <img class="small-avatar" style="width: 48px; height: 48px;" src="/api/avatar?userid=<?= unserialize($_SESSION["userData"])->getId(); ?>">
-                <div>
-                    <div style="font-weight: bold;"><?= unserialize($_SESSION["userData"])->getUsername(); ?></div>
-                    <div style="font-size: 12px; color: var(--secondary-color-02);"><?= unserialize($_SESSION["userData"])->getEmail(); ?></div>
+                <? if ($time < "12") { ?>
+                    <h2><?= $GLOBALS["locale"]["userPage"]["greetings"]["goodmorning"] ?><?= unserialize($_SESSION["userData"])->getUsername(); ?></h2>
+                <? } else if ($time >= "12" && $time < "17") { ?>
+                    <h2><?= $GLOBALS["locale"]["userPage"]["greetings"]["goodday"] ?><?= unserialize($_SESSION["userData"])->getUsername(); ?></h2>
+                <? } else if ($time >= "19") { ?>
+                    <h2><?= $GLOBALS["locale"]["userPage"]["greetings"]["goodnight"] ?><?= unserialize($_SESSION["userData"])->getUsername(); ?></h2>
+                <? } ?>
+            </div>
+
+            <div id="profileInfo" style="display: none;">
+                <h2><?= $GLOBALS["locale"]["titles"]["profileTitle"] ?></h2>
+                <div class="profile-block">
+                    <img class="small-avatar" style="width: 48px; height: 48px;" src="/api/avatar?userid=<?= unserialize($_SESSION["userData"])->getId(); ?>">
+                    <div>
+                        <div style="font-weight: bold;"><?= unserialize($_SESSION["userData"])->getUsername(); ?></div>
+                        <div style="font-size: 12px; color: var(--secondary-color-02);"><?= unserialize($_SESSION["userData"])->getEmail(); ?></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-<section>
+    <section>
+<?php } ?>

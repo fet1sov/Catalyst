@@ -46,6 +46,7 @@
         "formBlockName": "Still not sure? <br> Contact us"
     },
     "userMenu": {
+        "settings": "Settings",
         "logout": "Log out"
     }
 }

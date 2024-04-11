@@ -46,6 +46,7 @@
         "formBlockName": "Всё ещё не уверены? <br> Свяжитесь с нами"
     },
     "userMenu": {
+        "settings": "Настройки",
         "logout": "Выйти"
     }
 }
