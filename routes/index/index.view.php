@@ -21,7 +21,7 @@
         <a name="aboutus"></a>
         <div class="description-block offer-block">
             <h2>
-                <?= $GLOBALS["locale"]["agencyDescription"]["aboutusBlockName"] ?>
+                <?= $GLOBALS["locale"]["agencyDescription"]["aboutusBlockName"]["abotusDescription"] ?>
             </h2>
 
             <div>
