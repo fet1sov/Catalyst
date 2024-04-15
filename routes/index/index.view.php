@@ -21,11 +21,40 @@
         <a name="aboutus"></a>
         <div class="description-block offer-block">
             <h2>
-                <?= $GLOBALS["locale"]["agencyDescription"]["aboutusBlockName"] ?>
+                <?= $GLOBALS["locale"]["aboutusDescription"]["aboutusBlockName"] ?>
             </h2>
 
-            <div>
-                
+            <div class="offer-block">
+            <h3>
+                <?= $GLOBALS["locale"]["aboutusDescription"]["aboutusmainDescription1"] ?>
+            </h3>
+            <p>
+            <?= $GLOBALS["locale"]["aboutusDescription"]["aboutussecondDescription1"] ?>
+            </p>
+            <h3>
+                <?= $GLOBALS["locale"]["aboutusDescription"]["aboutusmainDescription2"] ?>
+            </h3>
+            <p>
+            <?= $GLOBALS["locale"]["aboutusDescription"]["aboutussecondDescription2"] ?>
+            </p>
+            <h3>
+                <?= $GLOBALS["locale"]["aboutusDescriptionn"]["aboutusmainDescription3"] ?>
+            </h3>
+            <p>
+            <?= $GLOBALS["locale"]["aboutusDescription"]["aboutussecondDescription3"] ?>
+            </p>
+            <h3>
+                <?= $GLOBALS["locale"]["aboutusDescription"]["aboutusmainDescription4"] ?>
+            </h3>
+            <p>
+            <?= $GLOBALS["locale"]["aboutusDescription"]["aboutussecondDescription4"] ?>
+            </p>
+            <h3>
+                <?= $GLOBALS["locale"]["aboutusDescription"]["aboutusmainDescription5"] ?>
+            </h3>
+            <p>
+            <?= $GLOBALS["locale"]["aboutusDescription"]["aboutussecondDescription5"] ?>
+            </p>
             </div>
         </div>
     </section>
@@ -38,7 +67,8 @@
                     <?= $GLOBALS["locale"]["agencyDescription"]["formBlockName"] ?>
                 </h2>
             </div>
-            
+            <div>
+            </div>    
             <div>
                 <form class="primary-form" method="POST" action="/register">
                     <input type="text" name="name" placeholder="<?= $GLOBALS["locale"]["placeholders"]["name"] ?>">
