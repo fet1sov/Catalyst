@@ -45,16 +45,21 @@
     },
     "aboutusDescription": {
         "aboutusBlockName": "What We Offer",
-        "aboutusmainDescription1": "1. Integrated Marketing Campaigns:",
-            "aboutussecondDescription1": "Development and implementation of multi-channel advertising campaigns, including online and offline media.",
-        "aboutusmainDescription2": "2. Digital Marketing and SEO:",
-             "aboutussecondDescription2": "Increasing online visibility through search engine optimization, contextual advertising, and social media marketing.",
-        "aboutusmainDescription3": "3. Creativity and Branding:",
-            "aboutussecondDescription3": "Creation of corporate identity, logo, and brand book. Development of creative concepts and visual solutions for advertising.",
-        "aboutusmainDescription4": "4. Analytics and Strategic Planning:",
-            "aboutussecondDescription4": "Market research, data analysis, and formulation of marketing strategies aimed at achieving business goals.",
-        "aboutusmainDescription5": "5. PR and Corporate Communications:",
-            "aboutussecondDescription5": "Management of public relations, event organization, media interaction, and crisis communication management."
+
+        "aboutusmainDescription1": "Integrated Marketing Campaigns:",
+        "aboutussecondDescription1": "Development and implementation of multi-channel advertising campaigns, including online and offline media.",
+
+        "aboutusmainDescription2": "Digital Marketing and SEO:",
+        "aboutussecondDescription2": "Increasing online visibility through search engine optimization, contextual advertising, and social media marketing.",
+        
+        "aboutusmainDescription3": "Creativity and Branding:",
+        "aboutussecondDescription3": "Creation of corporate identity, logo, and brand book. Development of creative concepts and visual solutions for advertising.",
+        
+        "aboutusmainDescription4": "Analytics and Strategic Planning:",
+        "aboutussecondDescription4": "Market research, data analysis, and formulation of marketing strategies aimed at achieving business goals.",
+        
+        "aboutusmainDescription5": "PR and Corporate Communications:",
+        "aboutussecondDescription5": "Management of public relations, event organization, media interaction, and crisis communication management."
     },
     "userMenu": {
         "settings": "Settings",

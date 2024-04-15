@@ -14,9 +14,11 @@
         Renderer::includeTemplate($GLOBALS["wtfFrontend"]["componentsPath"] . "elems/header.php", []);
     ?>
     
-    <?php
-        Renderer::includeTemplate($layout_path, $layout_data);
-    ?>
+    <div class="container">
+        <?php
+            Renderer::includeTemplate($layout_path, $layout_data);
+        ?>
+    </div>
 </body>
 
 <footer>

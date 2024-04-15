@@ -1,3 +1,7 @@
+<?php
+    Renderer::includeTemplate("frontend/components/cubeback.php", []);
+?>
+
 <link href="_styles/_css/auth.css" rel="stylesheet" />
 
 <section>
