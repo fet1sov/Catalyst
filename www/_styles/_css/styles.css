@@ -48,7 +48,7 @@ section {
     justify-content: center;
     align-items: center;
     
-    min-height: 100vh;
+    height: 100vh;
 }
 
 span.red-text {
@@ -90,8 +90,6 @@ header {
 
 header nav.navigation {
     position: fixed;
-
-    z-index: 9999;
 
     right: 0;
     left: 0;

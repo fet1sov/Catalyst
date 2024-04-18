@@ -2,7 +2,95 @@
     Renderer::includeTemplate("frontend/components/cubeback.php", []);
 ?>
 
-<link href="_styles/_css/index.css" rel="stylesheet"/>
+<style>
+	div.description-block {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row;
+
+		animation-name: appearAnimation-Y;
+		animation-duration: 0.5s;
+	}
+
+	div.description-block .secondary-description {
+		color: var(--secondary-color-02);
+		font-size: 16px;
+
+		display: flex;
+		justify-content: flex-start;
+		flex-direction: column;
+		align-items: end;
+	}
+
+	div.description-block h2 {
+		font-size: 48px;
+		font-weight: bold;
+	}
+
+	.offer-block {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+	}
+
+	.offer-block div h2{
+		margin-right: 50px;
+	}
+
+	#aboutusBlock div.description-block.offer-block {
+		display: flex;
+		flex-direction: column;
+	}
+
+	#aboutusBlock div.offers-block {
+		display: flex;
+		flex-direction: row;
+	}
+
+	#aboutusBlock div.offers-block div {
+		margin: 10px;
+		background-color: var(--secondary-color-04);
+
+		border-radius: 10px;
+		padding: 15px;
+	}
+
+	#aboutusBlock {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+	}
+
+	#aboutusBlock a {
+		position: absolute;
+		top: -20px;
+	}
+
+	@media (max-width: 600px) {
+		#contactForm {
+			display: flex;
+			flex-direction: column;
+		}
+
+		div.description-block {
+			flex-direction: column;
+		}
+
+		div.description-block:nth-child(n) {
+			margin-bottom: 10px;
+		}
+
+		form.primary-form {
+			margin-top: 50px;
+		}
+	}
+
+	@media (max-width: 820px) {
+		#aboutusBlock div.offers-block {
+			flex-direction: column;
+		}
+	}
+</style>
 
 
 <section>

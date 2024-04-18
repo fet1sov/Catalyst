@@ -1,6 +1,6 @@
 <?php
 
-$avatarFilePath = './uploads/avatars/';
+$avatarFilePath = './data/uploads/avatars/';
 
 switch($params['category'])
 {

@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
 
             case "settings": {
                 Renderer::includeTemplate("frontend/components/layout.php", [
-                    "layout_path" => "routes/user/user.view.php",
+                    "layout_path" => ROUTE_ROOT . "user/user.view.php",
                     "layout_data" => [
                         "category" => $params['category'],
                         "footerShow" => false
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
         }
     } else {
         Renderer::includeTemplate("frontend/components/layout.php", [
-            "layout_path" => "routes/user/user.view.php",
+            "layout_path" => ROUTE_ROOT . "user/user.view.php",
             "layout_data" => [
                 "footerShow" => false
             ]

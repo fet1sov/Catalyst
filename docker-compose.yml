@@ -1,0 +1,39 @@
+version: "3"
+services:
+  webserver:
+    build: ./
+    ports:
+      - "80:80"
+    depends_on:
+      - database
+    container_name: catalyst-server
+    volumes:
+      - ./www:/var/www/html
+      - ./apache-conf.conf:/etc/apache2/sites-enabled/000-default.conf
+    develop:
+      watch:
+        - path: www/
+          target: var/www/site
+
+  database:
+    image: mysql
+    ports:
+      - "3306:3306"
+    container_name: catalyst-db
+
+    environment:
+      MYSQL_DATABASE: catalyst
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.8
+    container_name: catalyst-admin
+    environment:
+      PMA_HOST: database
+      PMA_PORT: 3306
+    ports:
+      - '8080:80'
+
+volumes:
+  apache-logs:
+  mysql-data:

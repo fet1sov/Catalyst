@@ -3,13 +3,14 @@
 /*
 *   Change credentials on yours
 */
-define("MYSQL_HOST", "127.0.0.1");
+define("MYSQL_HOST", "database");
 define("MYSQL_USER", "root");
 define("MYSQL_PASS", "");
 define("MYSQL_DB", "catalyst");
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $GLOBALS["dbAdapter"] = new mysqli(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_DB);
+
 
 
 /*

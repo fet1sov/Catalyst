@@ -3,7 +3,7 @@
 require("includes/wtframework/includes.php");
 require("globals.php");
 
-define("ROUTE_ROOT", "routes/");
+define("ROUTE_ROOT", "backend/routes/");
 $router = new Router();
 
 /*

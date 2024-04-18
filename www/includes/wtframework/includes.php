@@ -21,7 +21,7 @@ foreach ($modules as $module) {
     require_once($module);
 }
 
-$modules = glob(__DIR__ . '/database/entities/*.php');
+$modules = glob($_SERVER["DOCUMENT_ROOT"] . '/backend/models/*.php');
 foreach ($modules as $module) {
     require_once($module);
 }
