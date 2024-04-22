@@ -16,6 +16,8 @@ class User extends DatabaseEntity {
     public function __construct($id = 0, $userData = array()) {
         $this->id = $id;
 
+        $createRowFlag = false;
+
         if ($id >= 1)
         {
             $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT COUNT(`id`) FROM `user` WHERE `id`=?");
@@ -37,30 +39,24 @@ class User extends DatabaseEntity {
                 $this->company = $row["company"];
                 $this->email = $row["email"];
             } else {
-                if (count($userData))
+                if (!count($userData))
                 {
-                    $stmt = $GLOBALS["dbAdapter"]->prepare("INSERT INTO `user`(`username`, `password`, `company`, `email`) VALUES (?, ?, ?, ?)");
-                    $stmt->bind_param('ssss', 
-                    $userData["username"],
-                    md5($userData["password"]),
-                    $userData["company"],
-                    $userData["email"]
-                    );
-                    $stmt->execute();
-
-                    $this->id = $GLOBALS["dbAdapter"]->insert_id;
-                    $this->username = $userData["username"];
-                    $this->password = $userData["password"];
-                    $this->company = $userData["company"];
-                    $this->email = $userData["email"];
+                    $createRowFlag = true;
                 }
             }
         } else {
+            $createRowFlag = true;
+        }
+
+        if ($createRowFlag)
+        {
+            $md5PasswordHash = md5($userData["password"]);
+
             $stmt = $GLOBALS["dbAdapter"]->prepare("INSERT INTO `user`(`username`, `password`, `company`, `email`) VALUES (?, ?, ?, ?)");
             $stmt->bind_param(
                 'ssss',
                 $userData["username"],
-                md5($userData["password"]),
+                $md5PasswordHash,
                 $userData["company"],
                 $userData["email"]
             );

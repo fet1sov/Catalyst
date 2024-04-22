@@ -21,11 +21,12 @@ $GLOBALS["dbAdapter"] = new mysqli(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_DB)
 try {
     $stmt = $GLOBALS["dbAdapter"]->prepare('
     CREATE TABLE IF NOT EXISTS `user` (
-        `id` int NOT NULL COMMENT \'ID user\',
+        `id` int NOT NULL COMMENT \'ID user\' AUTO_INCREMENT,
         `username` varchar(32) NOT NULL UNIQUE COMMENT \'Username\',
-        `password` varchar(255) NOT NULL UNIQUE COMMENT \'Password MD5 Hash\',
+        `password` varchar(255) NOT NULL COMMENT \'Password MD5 Hash\',
         `company` varchar(255) DEFAULT NULL COMMENT \'Company name\',
-        `email` varchar(128) NOT NULL UNIQUE COMMENT \'Contact e-mail\'
+        `email` varchar(128) NOT NULL UNIQUE COMMENT \'Contact e-mail\',
+        PRIMARY KEY (`id`)
     );
     ');
     $stmt->execute();
