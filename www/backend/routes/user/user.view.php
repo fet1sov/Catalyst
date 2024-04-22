@@ -1,12 +1,9 @@
 <link href="_styles/_css/user.css" rel="stylesheet"/>
 
 <?php
-    $userData = null;
     if (!isset($_SESSION["userData"]))
     {
         header('Location: /');
-    } else {
-        $userData = unserialize($_SESSION["userData"]);
     }
 ?>
 
@@ -112,16 +109,16 @@
             </style>
 
             <script>
-                    
+
             </script>
 
             <section>
                 <form method="post">
                     <div class="settings-section-block avatars">
                         <div class="avatars-block">
-                            <img id="smallAvatarPic" alt="Small avatar preview" class="avatar-preview" src="../../api/avatar?id=<?= $userData->getId() ?>">
-                            <img id="middleAvatarPic" alt="Small avatar preview" class="avatar-preview" src="../../api/avatar?id=<?= $userData->getId() ?>">
-                            <img id="bigAvatarPic" alt="Small avatar preview" class="avatar-preview" src="../../api/avatar?id=<?= $userData->getId() ?>">
+                            <img id="smallAvatarPic" alt="Small avatar preview" class="avatar-preview" src="../../api/avatar?userid=<?= unserialize($_SESSION["userData"])->getId(); ?>">
+                            <img id="middleAvatarPic" alt="Small avatar preview" class="avatar-preview" src="../../api/avatar?userid=<?= unserialize($_SESSION["userData"])->getId(); ?>">
+                            <img id="bigAvatarPic" alt="Small avatar preview" class="avatar-preview" src="../../api/avatar?userid=<?= unserialize($_SESSION["userData"])->getId(); ?>">
                         </div>
 
                         <div class="avatars-block small-category-block">
