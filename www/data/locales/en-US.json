@@ -32,6 +32,11 @@
             "goodmorning": "Good morning, ",
             "goodday": "Have nice day, ",
             "goodnight": "Good night, "
+        },
+        "settings": {
+            "avatar": {
+                "placeholder": "Upload the avatar less than 5 Mb. Formats: .png, .jpg, .gif"
+            }
         }
     },
     "navigationBar": {
@@ -64,5 +69,8 @@
     "userMenu": {
         "settings": "Settings",
         "logout": "Log out"
+    },
+    "buttons": {
+        "upload": "Upload"
     }
 }

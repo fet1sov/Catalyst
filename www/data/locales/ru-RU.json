@@ -32,6 +32,11 @@
             "goodmorning": "Доброе утро, ",
             "goodday": "Хорошего дня, ",
             "goodnight": "Доброй ночи, "
+        },
+        "settings": {
+            "avatar": {
+                "placeholder": "Загрузите аватар не более 5 МБ. Формат: .png, .jpg, .gif"
+            }
         }
     },
     "navigationBar": {
@@ -64,5 +69,8 @@
     "userMenu": {
         "settings": "Настройки",
         "logout": "Выйти"
+    },
+    "buttons": {
+        "upload": "Загрузить"
     }
 }

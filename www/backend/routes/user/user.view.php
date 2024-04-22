@@ -1,5 +1,15 @@
 <link href="_styles/_css/user.css" rel="stylesheet"/>
 
+<?php
+    $userData = null;
+    if (!isset($_SESSION["userData"]))
+    {
+        header('Location: /');
+    } else {
+        $userData = unserialize($_SESSION["userData"]);
+    }
+?>
+
 <style>
     section.user-info {
         display: flex;
@@ -36,6 +46,13 @@
     div#profileBlock div h2 {
         margin-bottom: 20px;
     }
+
+    div.settings-section-block {
+        padding: 20px;
+        border-radius: 10px;
+
+        box-shadow: 0px 1px 23px 0px rgba(34, 60, 80, 0.2);
+    }
 </style>
 
 <script>
@@ -53,9 +70,69 @@
 <?php if (isset($category)) { 
         switch($category) { 
             case "settings": { ?>
+
+            <style>
+                .avatars-block {
+                    display: flex;
+                    justify-content: space-between;
+
+                    margin-bottom: auto;
+                    align-items: end;
+                }
+
+                .avatar-preview {
+                    border-radius: 10px;
+                }
+
+                #smallAvatarPic {
+                    width: 48px;
+                    height: 48px;
+                }
+
+                #middleAvatarPic {
+                    width: 64px;
+                    height: 64px;
+                }
+
+                #bigAvatarPic {
+                    width: 128px;
+                    height: 128px;
+                }
+
+                div.settings-section-block.avatars {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                }
+
+                .small-category-block {
+                    margin-bottom: 10px;
+                }
+
+            </style>
+
+            <script>
+                    
+            </script>
+
             <section>
                 <form method="post">
+                    <div class="settings-section-block avatars">
+                        <div class="avatars-block">
+                            <img id="smallAvatarPic" alt="Small avatar preview" class="avatar-preview" src="../../api/avatar?id=<?= $userData->getId() ?>">
+                            <img id="middleAvatarPic" alt="Small avatar preview" class="avatar-preview" src="../../api/avatar?id=<?= $userData->getId() ?>">
+                            <img id="bigAvatarPic" alt="Small avatar preview" class="avatar-preview" src="../../api/avatar?id=<?= $userData->getId() ?>">
+                        </div>
 
+                        <div class="avatars-block small-category-block">
+                            <p>48px</p>
+                            <p>64px</p>
+                            <p>128px</p>
+                        </div>
+
+                        <p><strong><?= $GLOBALS["locale"]["userPage"]["settings"]["avatar"]["placeholder"] ?></strong></p>
+                        <button class="small-primary-button"><?= $GLOBALS["locale"]["buttons"]["upload"] ?></button>
+                    </div>
                 </form>
             </section>
         <?php } 
