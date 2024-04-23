@@ -25,16 +25,6 @@ services:
       MYSQL_DATABASE: catalyst
       MYSQL_ALLOW_EMPTY_PASSWORD: true
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:4.8
-    container_name: catalyst-admin
-    environment:
-      PMA_HOST: database
-      PMA_PORT: 3306
-      MYSQL_ALLOW_EMPTY_PASSWORD: true
-    ports:
-      - '8080:80'
-
 volumes:
   apache-logs:
   mysql-data:
