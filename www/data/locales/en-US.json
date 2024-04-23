@@ -22,6 +22,11 @@
             }
         }
     },
+    "success": {
+        "settings": {
+            "profileSettings": "Profile information was sucessfully updated"
+        }
+    },
     "titles": {
         "authorization": "Log In",
         "registration": "Registration",
@@ -34,8 +39,22 @@
             "goodnight": "Good night, "
         },
         "settings": {
+            "settingsNavigation": {
+                "profile": "Profile",
+                "security": "Security"
+            },
             "avatar": {
+                "header": "Profile picture",
                 "placeholder": "Upload the avatar less than 5 Mb. Formats: .png, .jpg, .gif"
+            },
+            "personalInfomation": {
+                "header": "Personal information",
+                "email": {
+                    "placeholder": "Contact email"
+                },
+                "companyName": {
+                    "placeholder": "Company name"
+                }
             }
         }
     },
@@ -71,6 +90,8 @@
         "logout": "Log out"
     },
     "buttons": {
-        "upload": "Upload"
+        "upload": "Upload",
+        "saveButton": "Save changes",
+        "discardButton": "Discard changes"
     }
 }

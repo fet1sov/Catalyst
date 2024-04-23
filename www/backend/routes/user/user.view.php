@@ -1,11 +1,4 @@
-<link href="_styles/_css/user.css" rel="stylesheet"/>
-
-<?php
-    if (!isset($_SESSION["userData"]))
-    {
-        header('Location: /');
-    }
-?>
+<link href="_styles/_css/user.css" rel="stylesheet" />
 
 <style>
     section.user-info {
@@ -57,94 +50,87 @@
         const profileBlock = document.querySelector("div#profileBlock div#profileInfo");
         const welcomeBlock = document.querySelector("div#profileBlock div#welcomeMessage")
 
-        setInterval(() => {
-            profileBlock.style.display = "block";
-            welcomeBlock.remove();
-        }, 2000);
+        if (profileBlock) {
+            setInterval(() => {
+                profileBlock.style.display = "block";
+                welcomeBlock.remove();
+            }, 2000);
+        }
     });
 </script>
 
-<?php if (isset($category)) { 
-        switch($category) { 
-            case "settings": { ?>
-
+<?php if (isset($category)) {
+    switch ($category) {
+        case "settings": { ?>
             <style>
-                .avatars-block {
+                .centerized-block {
                     display: flex;
-                    justify-content: space-between;
-
-                    margin-bottom: auto;
-                    align-items: end;
+                    flex-direction: column;
+                    justify-content: center;
                 }
 
-                .avatar-preview {
-                    border-radius: 10px;
+                .settings-navigation-block {
+                    margin-bottom: 20px;
                 }
-
-                #smallAvatarPic {
-                    width: 48px;
-                    height: 48px;
-                }
-
-                #middleAvatarPic {
-                    width: 64px;
-                    height: 64px;
-                }
-
-                #bigAvatarPic {
-                    width: 128px;
-                    height: 128px;
-                }
-
-                div.settings-section-block.avatars {
+                
+                .settings-navigation-block ul {
                     display: flex;
                     justify-content: center;
-                    flex-direction: column;
+                    flex-direction: row;
                 }
 
-                .small-category-block {
-                    margin-bottom: 10px;
+                .settings-navigation-block ul li {
+                    user-select: none;
+                    margin-right: 10px;
                 }
 
+                .settings-navigation-block ul li:hover {
+                    color: var(--primary-color-03);
+                }
+
+                section {
+                    height: unset;
+                    padding-top: 100px;
+                }
             </style>
 
-            <script>
-
-            </script>
-
-            <section>
-                <form method="post">
-                    <div class="settings-section-block avatars">
-                        <div class="avatars-block">
-                            <img id="smallAvatarPic" alt="Small avatar preview" class="avatar-preview" src="../../api/avatar?userid=<?= unserialize($_SESSION["userData"])->getId(); ?>">
-                            <img id="middleAvatarPic" alt="Small avatar preview" class="avatar-preview" src="../../api/avatar?userid=<?= unserialize($_SESSION["userData"])->getId(); ?>">
-                            <img id="bigAvatarPic" alt="Small avatar preview" class="avatar-preview" src="../../api/avatar?userid=<?= unserialize($_SESSION["userData"])->getId(); ?>">
-                        </div>
-
-                        <div class="avatars-block small-category-block">
-                            <p>48px</p>
-                            <p>64px</p>
-                            <p>128px</p>
-                        </div>
-
-                        <p><strong><?= $GLOBALS["locale"]["userPage"]["settings"]["avatar"]["placeholder"] ?></strong></p>
-                        <button class="small-primary-button"><?= $GLOBALS["locale"]["buttons"]["upload"] ?></button>
+            <form method="post">
+                <section class="centerized-block">
+                    <div class="settings-navigation-block">
+                        <ul>
+                            <?php foreach($GLOBALS["locale"]["userPage"]["settings"]["settingsNavigation"] as $settingSection) { ?>
+                                <li>
+                                    <?= $settingSection ?>
+                                </li>
+                            <?php } ?>
+                        </ul>
                     </div>
-                </form>
-            </section>
-        <?php } 
-        }
+
+                    <?php
+                    Renderer::includeTemplate("frontend/components/settings/settingsBlock.php", [
+                        "message" => [
+                            "type" => "success"
+                        ],
+                        "userData" => $userData
+                    ]);
+                    break;
+                    ?>
+                </section>
+            </form>
+        <?php
+        } 
+    }
 } else { ?>
     <section class="user-info">
         <div id="profileBlock">
             <div id="welcomeMessage">
                 <?
-                    $time = date("H");
+                $time = date("H");
                 ?>
 
                 <? if ($time < "12") { ?>
                     <h2><?= $GLOBALS["locale"]["userPage"]["greetings"]["goodmorning"] ?><?= unserialize($_SESSION["userData"])->getUsername(); ?></h2>
-                <? } else if ($time >= "12" && $time < "17") { ?>
+                <? } else if ($time >= "12" && $time < "19") { ?>
                     <h2><?= $GLOBALS["locale"]["userPage"]["greetings"]["goodday"] ?><?= unserialize($_SESSION["userData"])->getUsername(); ?></h2>
                 <? } else if ($time >= "19") { ?>
                     <h2><?= $GLOBALS["locale"]["userPage"]["greetings"]["goodnight"] ?><?= unserialize($_SESSION["userData"])->getUsername(); ?></h2>
@@ -162,5 +148,5 @@
                 </div>
             </div>
         </div>
-    <section>
-<?php } ?>
+        <section>
+        <?php } ?>

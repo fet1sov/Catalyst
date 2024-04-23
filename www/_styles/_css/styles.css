@@ -7,6 +7,7 @@
     --secondary-color-02: #a0a0a0;
     --secondary-color-03: #000000;
     --secondary-color-04: #F0F0F0;
+    --secondary-color-05: #cecece;
 }
 
 @font-face {
@@ -34,6 +35,17 @@
     }
     to {
         margin-left: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes appearAnimation-Y {
+    from {
+        margin-top: -20px;
+        opacity: 0;
+    }
+    to {
+        margin-top: 0;
         opacity: 1;
     }
 }
@@ -296,6 +308,63 @@ img.small-avatar {
     width: 40px;
     height: 40px;
     border-radius: 10px;
+}
+
+.small-primary-button {
+    display: flex;
+    justify-content: center;
+
+    background-color: var(--primary-color-01);
+    color: var(--secondary-color-01);
+
+    border-radius: 10px;
+
+    padding: 10px;
+    width: 100%;
+
+    user-select: none;
+    outline: none;
+
+    box-shadow: none;
+    cursor: pointer;
+    border: none;
+}
+
+.small-primary-button:hover {
+    background-color: var(--primary-color-02);
+}
+
+.small-primary-button:focus {
+    outline: none;
+}
+
+.round-button {
+    display: flex;
+    justify-content: center;
+
+    background-color: var(--primary-color-01);
+    color: var(--secondary-color-01);
+
+    border-radius: 50%;
+
+    padding: 10px;
+
+    user-select: none;
+}
+
+.round-button:hover {
+    background-color: var(--primary-color-02);
+}
+
+.primary-link-button {
+    padding: 10px;
+    user-select: none;
+
+    text-align: center;
+}
+
+.primary-link-button:hover {
+    color: var(--primary-color-01);
 }
 
 /* Small Desktop */

@@ -3,7 +3,7 @@ $ip = $_SERVER['REMOTE_ADDR'];
 
 if (!in_array($ip, ["localhost", "127.0.0.1"]))
 {
-    $geoDetails = json_decode(file_get_contents("http://ipinfo.io/{$ip}/json"));
+    $geoDetails = json_decode(file_get_contents("http://ip-api.com/json/{$ip}"));
 
     $regionLocales = array(
         "Russian" => array(

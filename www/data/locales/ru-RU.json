@@ -22,6 +22,11 @@
             }
         }
     },
+    "success": {
+        "settings": {
+            "profileSettings": "Информация о профиле была обновлена"
+        }
+    },
     "titles": {
         "authorization": "Авторизация",
         "registration": "Регистрация",
@@ -34,8 +39,22 @@
             "goodnight": "Доброй ночи, "
         },
         "settings": {
+            "settingsNavigation": {
+                "profile": "Профиль",
+                "security": "Безопасность"
+            },
             "avatar": {
+                "header": "Изображение профиля",
                 "placeholder": "Загрузите аватар не более 5 МБ. Формат: .png, .jpg, .gif"
+            },
+            "personalInfomation": {
+                "header": "Персональная информация",
+                "email": {
+                    "placeholder": "Контактная почта"
+                },
+                "companyName": {
+                    "placeholder": "Название компании"
+                }
             }
         }
     },
@@ -71,6 +90,8 @@
         "logout": "Выйти"
     },
     "buttons": {
-        "upload": "Загрузить"
+        "upload": "Загрузить",
+        "saveButton": "Сохранить изменения",
+        "discardButton": "Отменить изменения"
     }
 }

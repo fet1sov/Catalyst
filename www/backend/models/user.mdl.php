@@ -74,7 +74,7 @@ class User extends DatabaseEntity {
     {
         $stmt = $GLOBALS["dbAdapter"]->prepare("UPDATE `user` SET `username`=?, `password`=?, `company`=?, `email`=? WHERE `id`=?");
         $stmt->bind_param(
-            'ssss',
+            'ssssi',
             $this->username,
             $this->password,
             $this->company,
