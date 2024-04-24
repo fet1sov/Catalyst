@@ -240,6 +240,12 @@ div.profile-block {
     position: relative;
 }
 
+div.profile-block .user-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 div.profile-block a {
     display: flex;
     flex-direction: row;
@@ -250,7 +256,9 @@ div.user-menu {
     display: none;
     top: 40px;
 
-    width: 150px;
+    right: -40px;
+
+    width: 180px;
 
     border-radius: 10px;
     padding: 10px;
@@ -375,5 +383,9 @@ img.small-avatar {
 
     header nav.navigation {
         justify-content: space-between;
+    }
+
+    header .user-menu {
+        right: 10px;
     }
 }

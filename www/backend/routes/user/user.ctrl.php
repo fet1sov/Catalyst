@@ -16,6 +16,12 @@ if (isset($params['category'])) {
                 $userData = unserialize($_SESSION["userData"]);
 
                 if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                    var_dump($_FILES);
+                    if (isset($_FILES["avatarFile"]))
+                    {
+                        
+                    }
+
                     $userData->setEmail(isset($_POST["email"]) ? $_POST["email"] : $userData->getEmail());
                     $userData->setCompany(isset($_POST["company"]) ? $_POST["company"] : $userData->getCompany());
                     $userData->saveData();

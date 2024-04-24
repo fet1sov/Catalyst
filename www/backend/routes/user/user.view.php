@@ -98,8 +98,8 @@
                 <section class="centerized-block">
                     <div class="settings-navigation-block">
                         <ul>
-                            <?php foreach($GLOBALS["locale"]["userPage"]["settings"]["settingsNavigation"] as $settingSection) { ?>
-                                <li>
+                            <?php foreach($GLOBALS["locale"]["userPage"]["settings"]["settingsNavigation"] as $settingKey => $settingSection) { ?>
+                                <li icon="<?= $settingKey ?>">
                                     <?= $settingSection ?>
                                 </li>
                             <?php } ?>

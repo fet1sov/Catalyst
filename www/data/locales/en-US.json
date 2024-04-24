@@ -86,6 +86,8 @@
         "aboutussecondDescription5": "Management of public relations, event organization, media interaction, and crisis communication management."
     },
     "userMenu": {
+        "personalCabinet": "Personal cabinet",
+        "admin": "Admin",
         "settings": "Settings",
         "logout": "Log out"
     },

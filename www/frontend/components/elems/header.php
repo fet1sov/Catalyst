@@ -30,13 +30,27 @@
                 <a class="link-button outlined" href="/register"><?= $GLOBALS["locale"]["navigationBar"]["joinButton"] ?></a>
             <?php } else { ?>
                 <div class="profile-block">
-                    <a href="/user">
+                    <div class="user-block">
                         <img src="/api/avatar?userid=<?= unserialize($_SESSION["userData"])->getId(); ?>">
                         <div><?= unserialize($_SESSION["userData"])->getUsername(); ?></div>
-                    </a>
+                    </div>
 
                     <div class="user-menu">
                         <ul>
+                            <li>
+                                <a href="/user">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="6" r="4" fill="#000000"></circle> <path d="M20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13C16.4183 13 20 15.0147 20 17.5Z" fill="#000000"></path> </g></svg>
+                                    <div><?= $GLOBALS["locale"]["userMenu"]["personalCabinet"] ?></div>
+                                </a>
+                            </li>
+
+                            
+                            <li>
+                                <a href="/admin">
+                                    
+                                    <div><?= $GLOBALS["locale"]["userMenu"]["admin"] ?></div>
+                                </a>
+                            </li>
 
                             <li>
                                 <a href="/user/settings">

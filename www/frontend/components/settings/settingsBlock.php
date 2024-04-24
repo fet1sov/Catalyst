@@ -185,6 +185,8 @@
                 <h2>Персональная информация</h2>
             </div>
 
+            <input style="display: none;" name="avatarFile" id="avatarFile" type="file">
+
             <div class="settings-row">
                 <label for="email"><?= $GLOBALS["locale"]["userPage"]["settings"]["personalInfomation"]["email"]["placeholder"] ?></label>
                 <input id="email" placeholder="<?= $GLOBALS["locale"]["userPage"]["settings"]["personalInfomation"]["email"]["placeholder"] ?>" name="email" value="<?= $userData["email"] ?>">
