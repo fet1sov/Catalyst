@@ -108,9 +108,7 @@
 
                     <?php
                     Renderer::includeTemplate("frontend/components/settings/settingsBlock.php", [
-                        "message" => [
-                            "type" => "success"
-                        ],
+                        "messageUpdate" => isset($messageUpdate) ? $messageUpdate : false,
                         "userData" => $userData
                     ]);
                     break;

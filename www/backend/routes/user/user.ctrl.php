@@ -16,16 +16,15 @@ if (isset($params['category'])) {
                 $userData = unserialize($_SESSION["userData"]);
 
                 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-                    $userData->setCompany(isset($_POST["companyName"]) ? $_POST["companyName"] : $userData->getCompany());
+                    $userData->setEmail(isset($_POST["email"]) ? $_POST["email"] : $userData->getEmail());
+                    $userData->setCompany(isset($_POST["company"]) ? $_POST["company"] : $userData->getCompany());
                     $userData->saveData();
 
                     Renderer::includeTemplate("frontend/components/layout.php", [
                         "layout_path" => ROUTE_ROOT . "user/user.view.php",
                         "layout_data" => [
                             "category" => $params['category'],
-                            "message" => [
-                                "type" => "success"
-                            ],
+                            "messageUpdate" => true,
                             "footerShow" => false,
                             "userData" => [
                                 "email" => $userData->getEmail(),
