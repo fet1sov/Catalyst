@@ -170,7 +170,7 @@
         <?php if (isset($message) &&
         $message["type"] == "success") { ?>
             <p class="message-success"><?= $GLOBALS["locale"]["success"]["settings"]["profileSettings"] ?></p>
-        <? } ?>
+        <?php } ?>
 
         <div class="settings-buttons-block">
             <button class="small-primary-button"><?= $GLOBALS["locale"]["buttons"]["saveButton"] ?></button>
