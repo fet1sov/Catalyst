@@ -20,12 +20,37 @@ $GLOBALS["dbAdapter"] = new mysqli(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_DB)
 /* ============= USER TABLE ============== */
 try {
     $stmt = $GLOBALS["dbAdapter"]->prepare('
+    CREATE TABLE IF NOT EXISTS `applications` (
+        `id` int NOT NULL COMMENT \'Application ID\' AUTO_INCREMENT,
+        `author_id` int NOT NULL COMMENT \'Application author ID (user.id)\',
+        `manager_id` int COMMENT \'Manager ID (user.id)\',
+        FOREIGN KEY (`author_id`) REFERENCES `user`(`id`),
+        FOREIGN KEY (`manager_id`) REFERENCES `user`(`id`),
+        PRIMARY KEY (`id`)
+    );
+    ');
+    $stmt->execute();
+
+    $stmt = $GLOBALS["dbAdapter"]->prepare('
+    CREATE TABLE IF NOT EXISTS `role` (
+        `id` int NOT NULL COMMENT \'Role ID\' AUTO_INCREMENT,
+        `name` varchar(255) NOT NULL COMMENT \'Role name\',
+        `admin_rights` int COMMENT \'Admin rights\',
+        `applications_list` int COMMENT \'Access to applications list\',
+        PRIMARY KEY (`id`)
+    );
+    ');
+    $stmt->execute();
+
+    $stmt = $GLOBALS["dbAdapter"]->prepare('
     CREATE TABLE IF NOT EXISTS `user` (
-        `id` int NOT NULL COMMENT \'ID user\' AUTO_INCREMENT,
+        `id` int NOT NULL COMMENT \'User ID\' AUTO_INCREMENT,
         `username` varchar(32) NOT NULL UNIQUE COMMENT \'Username\',
         `password` varchar(255) NOT NULL COMMENT \'Password MD5 Hash\',
         `company` varchar(255) DEFAULT NULL COMMENT \'Company name\',
         `email` varchar(128) NOT NULL UNIQUE COMMENT \'Contact e-mail\',
+        `role_id` int DEFAULT NULL COMMENT \'Role ID\',
+        FOREIGN KEY (`role_id`)  REFERENCES `role`(`id`),
         PRIMARY KEY (`id`)
     );
     ');

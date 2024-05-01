@@ -87,7 +87,7 @@
     },
     "userMenu": {
         "personalCabinet": "Личный кабинет",
-        "admin": "Администрирование",
+        "admin": "Админ",
         "settings": "Настройки",
         "logout": "Выйти"
     },
