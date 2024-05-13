@@ -128,6 +128,8 @@
             fileList[0].type === "image/gif") {
             avatarFile = fileList[0];
 
+            document.querySelector("input#avatarFile").files = fileList;
+
             avatarPreviews.big.src = URL.createObjectURL(fileList[0]);
         }
     }
@@ -148,12 +150,15 @@
         avatarUploadButton.addEventListener("click", function() {
             let input = document.createElement('input');
             input.type = 'file';
+            input.accept = 'image/*';
             input.onchange = _this => {
                 let files = Array.from(input.files);
                 if (files[0].type === "image/png" ||
                     files[0].type === "image/jpeg" ||
                     files[0].type === "image/gif") {
                     avatarFile = files[0];
+
+                    document.querySelector("input#avatarFile").files = input.files;
 
                     avatarPreviews.big.src = URL.createObjectURL(files[0]);
                 }

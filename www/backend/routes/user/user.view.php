@@ -94,7 +94,7 @@
                 }
             </style>
 
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 <section class="centerized-block">
                     <div class="settings-navigation-block">
                         <ul>

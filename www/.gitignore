@@ -1,3 +1,0 @@
-# Ignoring all uploads on the website
-uploads/avatars/*.png
-!uploads/avatars/no_avatar.png

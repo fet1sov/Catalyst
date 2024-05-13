@@ -15,11 +15,10 @@ if (isset($params['category'])) {
         case "settings": {
                 $userData = unserialize($_SESSION["userData"]);
 
-                if ($_SERVER['REQUEST_METHOD'] == "POST") {
-                    var_dump($_FILES);
+                if ($_SERVER['REQUEST_METHOD'] == "POST") { 
                     if (isset($_FILES["avatarFile"]))
                     {
-                        
+                        move_uploaded_file($_FILES["avatarFile"]["tmp_name"], join(DIRECTORY_SEPARATOR, array($_SERVER["DOCUMENT_ROOT"], "data", "uploads", "avatars", unserialize($_SESSION["userData"])->getId() . ".png")));
                     }
 
                     $userData->setEmail(isset($_POST["email"]) ? $_POST["email"] : $userData->getEmail());
