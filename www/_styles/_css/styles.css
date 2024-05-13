@@ -221,6 +221,23 @@ input {
     border: none;
 }
 
+table {
+    width: 100%;
+}
+
+table tbody tr {
+    display: flex;
+    justify-content: space-between;
+}
+
+table tbody :first-child th {
+    font-weight: bold;
+    margin-right: 10px;
+    margin-left: 10px;
+
+    border-bottom: 2px #000000;
+}
+
 .primary-form :nth-child(n) {
     margin-bottom: 20px;
 }
@@ -322,6 +339,9 @@ img.small-avatar {
     display: flex;
     justify-content: center;
 
+    vertical-align: middle;
+    align-items: center;
+
     background-color: var(--primary-color-01);
     color: var(--secondary-color-01);
 
@@ -336,6 +356,10 @@ img.small-avatar {
     box-shadow: none;
     cursor: pointer;
     border: none;
+}
+
+.small-primary-button svg {
+    margin-right: 10px;
 }
 
 .small-primary-button:hover {

@@ -30,13 +30,23 @@
     "titles": {
         "authorization": "Авторизация",
         "registration": "Регистрация",
-        "profileTitle": "Личный кабинет"
+        "profileTitle": "Личный кабинет",
+        "applicationsTitle": "Ваши заявки"
     },
     "userPage": {
         "greetings": {
             "goodmorning": "Доброе утро, ",
             "goodday": "Хорошего дня, ",
             "goodnight": "Доброй ночи, "
+        },
+        "account": {
+            "createApplication": "Создать заявку",
+            "appTable": {
+                "id": "№ номер",
+                "manager": "Менеджер",
+                "status": "Статус",
+                "date": "Дата создания"
+            }
         },
         "settings": {
             "settingsNavigation": {

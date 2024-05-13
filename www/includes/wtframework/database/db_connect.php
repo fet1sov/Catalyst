@@ -15,7 +15,6 @@ $GLOBALS["dbAdapter"] = new mysqli(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_DB)
 *   Creating tables if they doesn't exists
 */
 
-/* ============= USER TABLE ============== */
 try {
     $stmt = $GLOBALS["dbAdapter"]->prepare('
     CREATE TABLE IF NOT EXISTS `role` (
@@ -23,6 +22,16 @@ try {
         `name` varchar(255) NOT NULL COMMENT \'Role name\',
         `admin_rights` int COMMENT \'Admin rights\',
         `applications_list` int COMMENT \'Access to applications list\',
+        PRIMARY KEY (`id`)
+    );
+    ');
+    $stmt->execute();
+
+    $stmt = $GLOBALS["dbAdapter"]->prepare('
+    CREATE TABLE IF NOT EXISTS `applications_statuses` (
+        `id` int NOT NULL COMMENT \'Status ID\' AUTO_INCREMENT,
+        `name` int COMMENT \'Status name\',
+        `color` int COMMENT \'Status\',
         PRIMARY KEY (`id`)
     );
     ');
@@ -56,8 +65,10 @@ try {
         `id` int NOT NULL COMMENT \'Application ID\' AUTO_INCREMENT,
         `author_id` int NOT NULL COMMENT \'Application author ID (user.id)\',
         `manager_id` int COMMENT \'Manager ID (user.id)\',
+        `status` int COMMENT \'Status\',
         FOREIGN KEY (`author_id`) REFERENCES `user`(`id`),
         FOREIGN KEY (`manager_id`) REFERENCES `user`(`id`),
+        FOREIGN KEY (`status`) REFERENCES `application_statuses`(`id`),
         PRIMARY KEY (`id`)
     );
     ');
@@ -66,4 +77,3 @@ try {
 } catch (mysqli_sql_exception $databaseException) {
     return;
 }
-/* ====================================== */

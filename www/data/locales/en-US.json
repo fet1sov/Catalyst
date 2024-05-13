@@ -30,13 +30,23 @@
     "titles": {
         "authorization": "Log In",
         "registration": "Registration",
-        "profileTitle": "Your profile"
+        "profileTitle": "Your profile",
+        "applicationsTitle": "Your applications"
     },
     "userPage": {
         "greetings": {
             "goodmorning": "Good morning, ",
             "goodday": "Have nice day, ",
             "goodnight": "Good night, "
+        },
+        "account": {
+            "createApplication": "Create a request",
+            "appTable": {
+                "id": "№ number",
+                "manager": "Manager",
+                "status": "Status",
+                "date": "Creation date"
+            }
         },
         "settings": {
             "settingsNavigation": {
