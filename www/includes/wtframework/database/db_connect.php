@@ -73,7 +73,22 @@ try {
     );
     ');
     $stmt->execute();
-    
+ 
+    /* Creating admin role */
+    $stmt = $GLOBALS["dbAdapter"]->prepare('INSERT INTO `role`(`name`, `admin_right`, `applications_list`) VALUES(\'administrator\', \'1\', \'1\')');
+    $stmt->execute();
+
+    $stmt = $GLOBALS["dbAdapter"]->prepare('INSERT INTO `role`(`name`, `admin_right`, `applications_list`) VALUES(\'administrator\', \'0\', \'1\')');
+    $stmt->execute();
+
+    /* Applications statuses */
+    $stmt = $GLOBALS["dbAdapter"]->prepare('INSERT INTO `applications_statuses`(`name`, `color`) VALUES(\'waiting\', \'#ffd500\')');
+    $stmt->execute();
+    $stmt = $GLOBALS["dbAdapter"]->prepare('INSERT INTO `applications_statuses`(`name`, `color`) VALUES(\'desclined\', \'#FF0000\')');
+    $stmt->execute();
+    $stmt = $GLOBALS["dbAdapter"]->prepare('INSERT INTO `applications_statuses`(`name`, `color`) VALUES(\'success\', \'#00FF00\')');
+    $stmt->execute();
+
 } catch (mysqli_sql_exception $databaseException) {
     return;
 }

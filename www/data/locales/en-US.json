@@ -95,6 +95,9 @@
         "aboutusmainDescription5": "PR and Corporate Communications:",
         "aboutussecondDescription5": "Management of public relations, event organization, media interaction, and crisis communication management."
     },
+    "sections": {
+        "companiestrustus": "COMPANY TRUST US"
+    },
     "userMenu": {
         "personalCabinet": "Personal cabinet",
         "admin": "Admin",

@@ -53,6 +53,17 @@ if (isset($params['category'])) {
                 }
                 break;
             }
+        
+        case "application": {
+            Renderer::includeTemplate("frontend/components/layout.php", [
+                "layout_path" => ROUTE_ROOT . "user/user.view.php",
+                "layout_data" => [
+                    "category" => $params['category'],
+                    "footerShow" => false,
+                ]
+            ]);
+            break;
+        }   
     }
 } else {
     Renderer::includeTemplate("frontend/components/layout.php", [

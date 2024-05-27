@@ -67,6 +67,22 @@
 		top: -20px;
 	}
 
+	.red-section-block {
+		display: flex;
+		flex-direction: column;
+
+		background-color: var(--primary-color-01);
+	}
+
+	.companies-list {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.companies-list li {
+		margin: 10px;
+	}
+
 	@media (max-width: 600px) {
 		#contactForm {
 			display: flex;
@@ -158,6 +174,16 @@
 		</div>
 	</div>
 </section>
+
+<section class="red-section-block">
+	<h2 style="color: #FFFFFF;"><?= $GLOBALS["locale"]["sections"]["companiestrustus"] ?></h2>
+	<ul class="companies-list">
+		<li><img width="300" height="64" src="_assets/brusnika-logo.png"></li>
+		<li><img width="96" height="64" src="_assets/atom-logo.png"></li>
+		<li><img width="128" height="76" src="_assets/securenet.png"></li>
+	</ul>
+</section>
+
 <section>
 	<a name="form"></a>
 	<div class="description-block offer-block" id="contactForm">
