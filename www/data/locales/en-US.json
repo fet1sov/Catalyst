@@ -96,7 +96,11 @@
         "aboutussecondDescription5": "Management of public relations, event organization, media interaction, and crisis communication management."
     },
     "sections": {
-        "companiestrustus": "COMPANY TRUST US"
+        "companiestrustus": "COMPANY TRUST US",
+        "applicationconfirm": {
+            "title": "Are you sure you want create a application?",
+            "text": "Your application will be sent to the management team"
+        } 
     },
     "userMenu": {
         "personalCabinet": "Personal cabinet",
@@ -105,6 +109,8 @@
         "logout": "Log out"
     },
     "buttons": {
+        "confirm": "Confirm",
+        "cancel": "Cancel",
         "upload": "Upload",
         "saveButton": "Save changes",
         "discardButton": "Discard changes"

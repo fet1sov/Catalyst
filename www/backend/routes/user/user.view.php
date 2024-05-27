@@ -165,10 +165,23 @@
                     border-radius: 10px;
                     box-shadow: 0px 1px 23px 0px rgba(34, 60, 80, 0.3);
                 }
+
+                .buttons-block {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
             </style>
 
-            <form class="application-form" action="/" method="post" >
-                <input type="text" placeholder="<?= $GLOBALS["locale"]["userPage"][""] ?>">
+            <form class="application-form" action="/user/application" method="post" >
+                <h2><?= $GLOBALS["locale"]["sections"]["applicationconfirm"]["title"] ?></h2>
+                <p><?= $GLOBALS["locale"]["sections"]["applicationconfirm"]["text"] ?></p>
+
+                <div class="buttons-block">
+                    <button class="small-primary-button"><?= $GLOBALS["locale"]["buttons"]["confirm"] ?></button>
+                    <div style="width:100px;"></div>
+                    <button class="small-primary-button"><?= $GLOBALS["locale"]["buttons"]["cancel"] ?></button>
+                </div>
             </form>
         <?php } else { ?>
             

@@ -29,6 +29,12 @@ $router->add("/user/{category}/", ROUTE_ROOT . "user/user.ctrl.php");
 $router->add("/api/{category}", ROUTE_ROOT . "api/api.ctrl.php");
 
 /*
+*   Admin routes
+*/
+$router->add("/admin/", ROUTE_ROOT . "admin/admin.ctrl.php");
+$router->add("/admin/{category}/", ROUTE_ROOT . "admin/admin.ctrl.php");
+
+/*
 *   404 NOT FOUND p_p
 */
 $router->pageNotFound(ROUTE_ROOT . "404/404.ctrl.php");
