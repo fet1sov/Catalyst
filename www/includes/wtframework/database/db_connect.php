@@ -28,7 +28,7 @@ try {
     $stmt->execute();
 
     $stmt = $GLOBALS["dbAdapter"]->prepare('
-    CREATE TABLE IF NOT EXISTS `applications_statuses` (
+    CREATE TABLE IF NOT EXISTS `application_statuses` (
         `id` int NOT NULL COMMENT \'Status ID\' AUTO_INCREMENT,
         `name` int COMMENT \'Status name\',
         `color` int COMMENT \'Status\',
@@ -63,9 +63,9 @@ try {
     $stmt = $GLOBALS["dbAdapter"]->prepare('
     CREATE TABLE IF NOT EXISTS `applications` (
         `id` int NOT NULL COMMENT \'Application ID\' AUTO_INCREMENT,
-        `author_id` int NOT NULL COMMENT \'Application author ID (user.id)\',
-        `manager_id` int COMMENT \'Manager ID (user.id)\',
-        `status` int COMMENT \'Status\',
+        `author_id` int NOT NULL COMMENT \'Application author ID\',
+        `manager_id` int DEFAULT NULL COMMENT \'Manager ID\',
+        `status` int DEFAULT NULL COMMENT \'Status\',
         FOREIGN KEY (`author_id`) REFERENCES `user`(`id`),
         FOREIGN KEY (`manager_id`) REFERENCES `user`(`id`),
         FOREIGN KEY (`status`) REFERENCES `application_statuses`(`id`),

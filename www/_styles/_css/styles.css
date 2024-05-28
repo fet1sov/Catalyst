@@ -63,6 +63,17 @@ section {
     height: 100vh;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section.small-section {
+    width: 60%;
+}
+
 span.red-text {
     color: var(--primary-color-01);
     text-shadow: var(--primary-color-03) 0px 0px 50px;
@@ -409,5 +420,9 @@ img.small-avatar {
 
     header .user-menu {
         right: 10px;
+    }
+
+    section.small-section {
+        width: 100%;
     }
 }
