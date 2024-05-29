@@ -12,6 +12,7 @@ class User extends DatabaseEntity {
     public $password = "";
     public $company = "";
     public $email = "";
+    public $roleid = 0;
 
     public function __construct($id = 0, $userData = array()) {
         $this->id = $id;
@@ -38,6 +39,7 @@ class User extends DatabaseEntity {
                 $this->password = $row["password"];
                 $this->company = $row["company"];
                 $this->email = $row["email"];
+                $this->roleid = $row["role_id"] ? $row["role_id"] : 0;
             } else {
                 if (!count($userData))
                 {
@@ -67,6 +69,7 @@ class User extends DatabaseEntity {
             $this->password = md5($userData["password"]);
             $this->company = $userData["company"];
             $this->email = $userData["email"];
+            $this->roleid = array_key_exists("role_id", $userData) ? $userData["role_id"] : 0;
         }
     }
 
