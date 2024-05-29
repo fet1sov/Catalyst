@@ -43,9 +43,8 @@ class Application extends DatabaseEntity {
     }
 
     public static function getFullList() {
-        $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT * FROM `applications` INNER JOIN `applications_statuses` ON `applications`.`status` = `applications_statuses`.`id`");
+        $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT * FROM `applications` INNER JOIN `application_statuses` ON `applications`.`status` = `application_statuses`.`id`");
         $stmt->execute();
-        $stmt->store_result();
 
         $applicationsResult = $stmt->get_result();
         $applicationsRows = $applicationsResult->fetch_array(MYSQLI_ASSOC);

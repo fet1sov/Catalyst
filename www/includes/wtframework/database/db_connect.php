@@ -28,16 +28,6 @@ try {
     $stmt->execute();
 
     $stmt = $GLOBALS["dbAdapter"]->prepare('
-    CREATE TABLE IF NOT EXISTS `application_statuses` (
-        `id` int NOT NULL COMMENT \'Status ID\' AUTO_INCREMENT,
-        `name` int COMMENT \'Status name\',
-        `color` int COMMENT \'Status\',
-        PRIMARY KEY (`id`)
-    );
-    ');
-    $stmt->execute();
-
-    $stmt = $GLOBALS["dbAdapter"]->prepare('
     CREATE TABLE IF NOT EXISTS `user` (
         `id` int NOT NULL COMMENT \'User ID\' AUTO_INCREMENT,
         `username` varchar(32) NOT NULL UNIQUE COMMENT \'Username\',
@@ -45,7 +35,17 @@ try {
         `company` varchar(255) DEFAULT NULL COMMENT \'Company name\',
         `email` varchar(128) NOT NULL UNIQUE COMMENT \'Contact e-mail\',
         `role_id` int DEFAULT NULL COMMENT \'Role ID\',
-        FOREIGN KEY (`role_id`)  REFERENCES `role`(`id`),
+        FOREIGN KEY (`role_id`) REFERENCES `role`(`id`),
+        PRIMARY KEY (`id`)
+    );
+    ');
+    $stmt->execute();
+
+    $stmt = $GLOBALS["dbAdapter"]->prepare('
+    CREATE TABLE IF NOT EXISTS `application_statuses` (
+        `id` int NOT NULL COMMENT \'Status ID\' AUTO_INCREMENT,
+        `name` varchar(255) COMMENT \'Status name\',
+        `color` int COMMENT \'Status\',
         PRIMARY KEY (`id`)
     );
     ');
@@ -60,21 +60,22 @@ try {
     ');
     $stmt->execute();
 
-    $stmt = $GLOBALS["dbAdapter"]->prepare('
+    $GLOBALS["dbAdapter"]->query('
     CREATE TABLE IF NOT EXISTS `applications` (
-        `id` int NOT NULL COMMENT \'Application ID\' AUTO_INCREMENT,
-        `author_id` int NOT NULL COMMENT \'Application author ID\',
-        `manager_id` int DEFAULT NULL COMMENT \'Manager ID\',
-        `status` int DEFAULT NULL COMMENT \'Status\',
+        `id` int NOT NULL AUTO_INCREMENT,
+        `author_id` int DEFAULT NULL,
+        `manager_id` int DEFAULT NULL,
+        `status` int DEFAULT NULL,
+        `text` VARCHAR(2048),
         FOREIGN KEY (`author_id`) REFERENCES `user`(`id`),
         FOREIGN KEY (`manager_id`) REFERENCES `user`(`id`),
         FOREIGN KEY (`status`) REFERENCES `application_statuses`(`id`),
         PRIMARY KEY (`id`)
     );
     ');
-    $stmt->execute();
  
     /* Creating admin role */
+
     $stmt = $GLOBALS["dbAdapter"]->prepare('INSERT INTO `role`(`name`, `admin_right`, `applications_list`) VALUES(\'administrator\', \'1\', \'1\')');
     $stmt->execute();
 

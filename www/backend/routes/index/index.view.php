@@ -98,6 +98,10 @@
 	}
 
 	@media (max-width: 600px) {
+		section {
+			height: 120vh;
+		}
+
 		#contactForm {
 			display: flex;
 			flex-direction: column;
@@ -118,6 +122,12 @@
 
 	@media (max-width: 820px) {
 		#aboutusBlock div.offers-block {
+			flex-direction: column;
+		}
+
+		.companies-list {
+			display: flex;
+			justify-content: center;
 			flex-direction: column;
 		}
 	}
