@@ -43,7 +43,7 @@ class Application extends DatabaseEntity {
     }
 
     public static function getFullList() {
-        $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT `applications`.*, `user`.`username` AS `user_author`, `user`.`username` AS `user_manager` FROM `applications` INNER JOIN `application_statuses` ON `applications`.`status` = `application_statuses`.`id` INNER JOIN `user` ON `applications`.`author_id` = `user`.`id` LEFT JOIN `user` manager_user ON `applications`.`manager_id`=`user`.`id`");
+        $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT `applications`.*, `user`.`username` AS `user_author`, `user`.`username` AS `user_manager`, `application_statuses`.`name` FROM `applications` INNER JOIN `application_statuses` ON `applications`.`status` = `application_statuses`.`id` INNER JOIN `user` ON `applications`.`author_id` = `user`.`id` LEFT JOIN `user` manager_user ON `applications`.`manager_id`=`user`.`id`");
         $stmt->execute();
 
         $applicationsResult = $stmt->get_result();
