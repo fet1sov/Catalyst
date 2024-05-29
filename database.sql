@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 CREATE TABLE IF NOT EXISTS `application_statuses` (
     `id` int NOT NULL COMMENT 'Status ID' AUTO_INCREMENT,
     `name` varchar(255) COMMENT 'Status name',
-    `color` int COMMENT 'Status',
+    `color` varchar(255) COMMENT 'Status',
     PRIMARY KEY (`id`)
 );
 
@@ -36,8 +36,15 @@ CREATE TABLE IF NOT EXISTS `applications` (
     `manager_id` int DEFAULT NULL,
     `status` int DEFAULT NULL,
     `text` VARCHAR(2048),
+    `creation_date` int,
     FOREIGN KEY (`author_id`) REFERENCES `user`(`id`),
     FOREIGN KEY (`manager_id`) REFERENCES `user`(`id`),
     FOREIGN KEY (`status`) REFERENCES `application_statuses`(`id`),
     PRIMARY KEY (`id`)
 );
+
+INSERT INTO `role`(`name`, `admin_right`, `applications_list`) VALUES('administrator', '1', '1');
+INSERT INTO `role`(`name`, `admin_right`, `applications_list`) VALUES('manager', '0', '1');
+INSERT INTO `applications_statuses`(`name`, `color`) VALUES('waiting', '#ffd500');
+INSERT INTO `applications_statuses`(`name`, `color`) VALUES('desclined', '#FF0000');
+INSERT INTO `applications_statuses`(`name`, `color`) VALUES('success', '#00FF00')

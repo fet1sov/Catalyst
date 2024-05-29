@@ -45,7 +45,7 @@ try {
     CREATE TABLE IF NOT EXISTS `application_statuses` (
         `id` int NOT NULL COMMENT \'Status ID\' AUTO_INCREMENT,
         `name` varchar(255) COMMENT \'Status name\',
-        `color` int COMMENT \'Status\',
+        `color` varchar(255) COMMENT \'Status\',
         PRIMARY KEY (`id`)
     );
     ');
@@ -67,6 +67,7 @@ try {
         `manager_id` int DEFAULT NULL,
         `status` int DEFAULT NULL,
         `text` VARCHAR(2048),
+        `creation_date` int,
         FOREIGN KEY (`author_id`) REFERENCES `user`(`id`),
         FOREIGN KEY (`manager_id`) REFERENCES `user`(`id`),
         FOREIGN KEY (`status`) REFERENCES `application_statuses`(`id`),
@@ -76,18 +77,18 @@ try {
  
     /* Creating admin role */
 
-    $stmt = $GLOBALS["dbAdapter"]->prepare('INSERT INTO `role`(`name`, `admin_right`, `applications_list`) VALUES(\'administrator\', \'1\', \'1\')');
+    $stmt = $GLOBALS["dbAdapter"]->prepare('INSERT INTO `role`(`name`, `admin_rights`, `applications_list`) VALUES(\'administrator\', \'1\', \'1\')');
     $stmt->execute();
 
-    $stmt = $GLOBALS["dbAdapter"]->prepare('INSERT INTO `role`(`name`, `admin_right`, `applications_list`) VALUES(\'administrator\', \'0\', \'1\')');
+    $stmt = $GLOBALS["dbAdapter"]->prepare('INSERT INTO `role`(`name`, `admin_rights`, `applications_list`) VALUES(\'manager\', \'0\', \'1\')');
     $stmt->execute();
 
     /* Applications statuses */
-    $stmt = $GLOBALS["dbAdapter"]->prepare('INSERT INTO `applications_statuses`(`name`, `color`) VALUES(\'waiting\', \'#ffd500\')');
+    $stmt = $GLOBALS["dbAdapter"]->prepare('INSERT INTO `application_statuses`(`name`, `color`) VALUES(\'waiting\', \'#ffd500\')');
     $stmt->execute();
-    $stmt = $GLOBALS["dbAdapter"]->prepare('INSERT INTO `applications_statuses`(`name`, `color`) VALUES(\'desclined\', \'#FF0000\')');
+    $stmt = $GLOBALS["dbAdapter"]->prepare('INSERT INTO `application_statuses`(`name`, `color`) VALUES(\'desclined\', \'#FF0000\')');
     $stmt->execute();
-    $stmt = $GLOBALS["dbAdapter"]->prepare('INSERT INTO `applications_statuses`(`name`, `color`) VALUES(\'success\', \'#00FF00\')');
+    $stmt = $GLOBALS["dbAdapter"]->prepare('INSERT INTO `application_statuses`(`name`, `color`) VALUES(\'success\', \'#00FF00\')');
     $stmt->execute();
 
 } catch (mysqli_sql_exception $databaseException) {

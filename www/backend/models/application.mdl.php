@@ -47,9 +47,7 @@ class Application extends DatabaseEntity {
         $stmt->execute();
 
         $applicationsResult = $stmt->get_result();
-        $applicationsRows = $applicationsResult->fetch_array(MYSQLI_ASSOC);
-
-        return $applicationsRows;
+        return $applicationsResult->fetch_array(MYSQLI_ASSOC);
     }
 
     public function saveData() : void

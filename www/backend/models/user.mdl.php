@@ -70,6 +70,15 @@ class User extends DatabaseEntity {
         }
     }
 
+    public function getPermissions() : array {
+        $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT `role`.`admin_rights`, `role`.`applications_list` FROM `user` INNER JOIN `role` ON `user`.`role_id` = `role`.`id` WHERE `user`.`id`=?");
+        $stmt->bind_param('i', $this->id);
+        $stmt->execute();
+
+        $rightResult = $stmt->get_result();
+        return $rightResult->fetch_array(MYSQLI_ASSOC);
+    }
+
     public function saveData() : void
     {
         $stmt = $GLOBALS["dbAdapter"]->prepare("UPDATE `user` SET `username`=?, `password`=?, `company`=?, `email`=? WHERE `id`=?");

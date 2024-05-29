@@ -1,4 +1,4 @@
-<div>
+<section>
     <table>
         <tr>
             <th><?= $GLOBALS["locale"]["userPage"]["account"]["appTable"]["id"] ?></th>
@@ -7,13 +7,16 @@
             <th><?= $GLOBALS["locale"]["userPage"]["account"]["appTable"]["date"] ?></th>
         </tr>
 
-        <?php foreach ($applications as $application) { ?>
+        <?php
+        if ($applications)
+        { 
+            foreach ($applications as $application) { ?>
         <tr>
             <th><?= $application["id"] ?></th>
-            <th><?= $application[""] ?></th>
-            <th><?= $application[""] ?></th>
             <th><?= $application["status"] ?></th>
         </tr>
-        <?php } ?>
+        <?php 
+            }
+        } ?>
     </table>
-</div>
+</section>

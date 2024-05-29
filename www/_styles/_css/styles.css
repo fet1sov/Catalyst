@@ -121,6 +121,7 @@ header nav.navigation {
 
     padding-top: 20px;
     padding-bottom: 20px;
+    z-index: 9999;
 }
 
 header .logo {
