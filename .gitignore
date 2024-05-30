@@ -1,3 +1,4 @@
 # Ignoring all uploads on the website
 www/uploads/avatars/*.png
 !www/uploads/avatars/no_avatar.png
+.vscode

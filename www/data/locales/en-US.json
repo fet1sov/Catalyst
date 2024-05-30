@@ -1,4 +1,5 @@
 {
+    "locale_name": "English",
     "moreButton": "More",
     "placeholders": {
         "login": "Login",
@@ -20,7 +21,9 @@
                 "message": " we didn't found this place :(",
                 "description": "Page not found or not avaible anymore"
             }
-        }
+        },
+        "nullField": "Not clarified",
+        "noStatus": "In process"
     },
     "success": {
         "settings": {
@@ -34,6 +37,11 @@
         "applicationsTitle": "Your applications"
     },
     "userPage": {
+        "statuses": {
+            "waiting": "Observing",
+            "desclined": "Desclined",
+            "success": "Accepted"
+        },
         "greetings": {
             "goodmorning": "Good morning, ",
             "goodday": "Have nice day, ",
@@ -44,6 +52,7 @@
             "appTable": {
                 "id": "№ number",
                 "manager": "Manager",
+                "author": "Author",
                 "status": "Status",
                 "date": "Creation date"
             }
@@ -66,6 +75,17 @@
                     "placeholder": "Company name"
                 }
             }
+        },
+        "applicationInfo": {
+            "author": "Author:",
+            "manager": "Assigned manager:",
+            "status": "Current status:",
+            "text": "Application description:",
+
+            "contact": "Contact information:",
+
+            "assignManager": "Assign manager:",
+            "changeStatus": "Change status:"
         }
     },
     "navigationBar": {
@@ -98,21 +118,32 @@
     "sections": {
         "companiestrustus": "THEY TRUST US",
         "applicationconfirm": {
-            "title": "Are you sure you want create a application?",
-            "text": "Your application will be sent to the management team"
+            "title": "Fill all blanks to send a request",
+            "text": "Enter the description of your request",
+            "success_message": "Application was sent to management team"
         } 
     },
     "userMenu": {
-        "personalCabinet": "Personal cabinet",
+        "personalCabinet": "Personal",
         "admin": "Admin",
         "settings": "Settings",
         "logout": "Log out"
     },
     "buttons": {
+        "continue": "Continue",
         "confirm": "Confirm",
         "cancel": "Cancel",
         "upload": "Upload",
         "saveButton": "Save changes",
-        "discardButton": "Discard changes"
+        "discardButton": "Discard changes",
+        "view": "View",
+        "backtolist": "Back to list",
+        "update": "Update",
+
+        "delete": "Delete"
+    },
+    "footer": {
+        "phone": "Phone",
+        "contacts": "Contacts"
     }
 }

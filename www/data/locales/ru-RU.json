@@ -1,4 +1,5 @@
 {
+    "locale_name": "Русский",
     "moreButton": "Подробнее",
     "placeholders": {
         "login": "Имя пользователя",
@@ -20,7 +21,9 @@
                 "message": " мы не нашли этого места",
                 "description": "Страница не найдена и стала недоступна"
             }
-        }
+        },
+        "nullField": "Не назначено",
+        "noStatus": "В процессе"
     },
     "success": {
         "settings": {
@@ -34,6 +37,11 @@
         "applicationsTitle": "Ваши заявки"
     },
     "userPage": {
+        "statuses": {
+            "waiting": "На рассмотрении",
+            "desclined": "Отказано",
+            "success": "Принята"
+        },
         "greetings": {
             "goodmorning": "Доброе утро, ",
             "goodday": "Хорошего дня, ",
@@ -44,6 +52,7 @@
             "appTable": {
                 "id": "№ номер",
                 "manager": "Менеджер",
+                "author": "Автор",
                 "status": "Статус",
                 "date": "Дата создания"
             }
@@ -66,6 +75,17 @@
                     "placeholder": "Название компании"
                 }
             }
+        },
+        "applicationInfo": {
+            "author": "Автор:",
+            "manager": "Назначенный менеджер:",
+            "status": "Текущий статус:",
+            "text": "Описание заявки:",
+
+            "contact": "Контактная информация:",
+
+            "assignManager": "Назначить менеджера:",
+            "changeStatus": "Установить статус:"
         }
     },
     "navigationBar": {
@@ -98,8 +118,9 @@
     "sections": {
         "companiestrustus": "НАМ ДОВЕРЯЮТ",
         "applicationconfirm": {
-            "title": "Вы уверены что хотите создать заявку?",
-            "text": "Заявка будет отправлена на рассмотрение отделу менеджмента"
+            "title": "Заполните все поля для отправки заявки",
+            "text": "Введите описание вашей заявки",
+            "success_message": "Заявка была отправлена отделу менеджемента"
         }
     },
     "userMenu": {
@@ -109,10 +130,20 @@
         "logout": "Выйти"
     },
     "buttons": {
+        "continue": "Продолжить",
         "confirm": "Подтвердить",
         "cancel": "Отмена",
         "upload": "Загрузить",
         "saveButton": "Сохранить изменения",
-        "discardButton": "Отменить изменения"
+        "discardButton": "Отменить изменения",
+        "view": "Просмотреть",
+        "backtolist": "Назад к списку",
+        "update": "Обновить",
+
+        "delete": "Удалить"
+    },
+    "footer": {
+        "phone": "Телефон",
+        "contacts": "Контакты"
     }
 }

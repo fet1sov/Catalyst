@@ -6,8 +6,8 @@
 
 <ul>
     <li>
-        <h2>Контакты</h2>
+        <h2><?= $GLOBALS["locale"]["footer"]["contacts"] ?></h2>
         <p><span class="red-text">Email: </span><a href="mailto:agency@catalyst.ru">agency@catalyst.ru</a></p>
-        <p><span class="red-text">Телефон: </span><a href="tel:+79001111111">+7 (900) 111-11-11</p>
+        <p><span class="red-text"><?= $GLOBALS["locale"]["footer"]["phone"] ?>: </span><a href="tel:+79001111111">+7 (900) 111-11-11</p>
     </li>
 </ul>

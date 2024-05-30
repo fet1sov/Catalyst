@@ -11,6 +11,7 @@ services:
     volumes:
       - ./www:/var/www/html
       - ./apache-conf.conf:/etc/apache2/sites-enabled/000-default.conf
+      - ./www/data/uploads:/var/www/html/data/uploads/
     develop:
       watch:
         - path: www/

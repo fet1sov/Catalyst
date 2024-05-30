@@ -3,6 +3,10 @@
 ?>
 
 <style>
+	body {
+		overflow-x: hidden;
+	}
+
 	div.description-block {
 		display: flex;
 		justify-content: space-between;

@@ -55,13 +55,42 @@ if (isset($params['category'])) {
             }
         
         case "application": {
-            Renderer::includeTemplate("frontend/components/layout.php", [
-                "layout_path" => ROUTE_ROOT . "user/user.view.php",
-                "layout_data" => [
-                    "category" => $params['category'],
-                    "footerShow" => false,
-                ]
-            ]);
+
+            if (!isset($_GET["id"]))
+            {
+                Renderer::includeTemplate("frontend/components/layout.php", [
+                    "layout_path" => ROUTE_ROOT . "user/user.view.php",
+                    "layout_data" => [
+                        "category" => $params['category'],
+                        "footerShow" => false,
+                    ]
+                ]);
+            } else {
+                $application = new Application(intval($_GET["id"]));
+
+                Renderer::includeTemplate("frontend/components/layout.php", [
+                    "layout_path" => ROUTE_ROOT . "user/user.view.php",
+                    "layout_data" => [
+                        "category" => $params['category'],
+                        "applicationData" => $application,
+                        "managerData" => $application->getManagerInfo(),
+                        "footerShow" => false,
+                    ]
+                ]);
+            }
+            
+
+            if ($_SERVER["REQUEST_METHOD"] == "POST"
+                && isset($_SESSION["userData"]))
+            {
+                $userData = unserialize($_SESSION["userData"]);
+
+                $application = new Application(0, [
+                    "author_id" => $userData->id,
+                    "creation_date" => time(),
+                    "text" => addslashes(htmlspecialchars($_POST["application-text"]))
+                ]);
+            }
             break;
         }   
     }
@@ -69,6 +98,7 @@ if (isset($params['category'])) {
     Renderer::includeTemplate("frontend/components/layout.php", [
         "layout_path" => ROUTE_ROOT . "user/user.view.php",
         "layout_data" => [
+            "applications" => Application::fetchByUserId(unserialize($_SESSION["userData"])->id),
             "footerShow" => false
         ]
     ]);

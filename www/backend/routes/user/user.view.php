@@ -158,12 +158,18 @@
 
         case "application": { ?>
         <section>
-        <?php if ($_SERVER["REQUEST_METHOD"] != "POST") { ?>
             <style>
                 .application-form {
                     padding: 20px;
                     border-radius: 10px;
                     box-shadow: 0px 1px 23px 0px rgba(34, 60, 80, 0.3);
+                }
+
+                .flex-centerized {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
                 }
 
                 .buttons-block {
@@ -173,21 +179,99 @@
                 }
             </style>
 
+        <?php if ($_SERVER["REQUEST_METHOD"] == "GET") { 
+                if (!isset($applicationData)) {
+            ?>
             <form class="application-form" action="/user/application" method="post" >
                 <h2><?= $GLOBALS["locale"]["sections"]["applicationconfirm"]["title"] ?></h2>
-                <p><?= $GLOBALS["locale"]["sections"]["applicationconfirm"]["text"] ?></p>
+                <textarea name="application-text" id="application-text" placeholder="<?= $GLOBALS["locale"]["sections"]["applicationconfirm"]["text"] ?>"></textarea>
 
                 <div class="buttons-block">
                     <button class="small-primary-button"><?= $GLOBALS["locale"]["buttons"]["confirm"] ?></button>
                     <div style="width:100px;"></div>
-                    <button class="small-primary-button"><?= $GLOBALS["locale"]["buttons"]["cancel"] ?></button>
+                    <a href="../user" class="small-primary-button"><?= $GLOBALS["locale"]["buttons"]["cancel"] ?></a>
                 </div>
             </form>
-        <?php } else { ?>
-            
+            <?php } else { ?>
+                <style>
+                .application-form {
+                    padding: 20px;
+                    border-radius: 10px;
+                    box-shadow: 0px 1px 23px 0px rgba(34, 60, 80, 0.3);
+                }
+
+                .flex-centerized {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .collumn-block {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .row-block {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                }
+
+                .info-block {
+                    margin-bottom: 20px;
+                }
+            </style>
+
+            <div class="collumn-block">
+                <a href="../user" style="display: flex; align-items: center">
+                    <svg width="32" height="32" style="margin: 10px" viewBox="0 -4 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>arrow-left</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-416.000000, -939.000000)" fill="#000000"> <path d="M443,948 L436,948 L436,950 L443,950 C443.553,950 444,949.553 444,949 C444,948.448 443.553,948 443,948 L443,948 Z M426.657,955.243 C427.047,955.633 427.047,956.267 426.657,956.657 C426.267,957.048 425.633,957.048 425.242,956.657 L418.343,949.758 C418.135,949.549 418.046,949.272 418.06,949 C418.046,948.728 418.135,948.451 418.343,948.243 L425.242,941.344 C425.633,940.953 426.267,940.953 426.657,941.344 C427.047,941.733 427.047,942.367 426.657,942.758 L421.414,948 L436,948 L436,941 C436,939.896 435.104,939 434,939 L418,939 C416.896,939 416,939.896 416,941 L416,957 C416,958.104 416.896,959 418,959 L434,959 C435.104,959 436,958.104 436,957 L436,950 L421.414,950 L426.657,955.243 L426.657,955.243 Z" id="arrow-left" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>
+                    <?= $GLOBALS["locale"]["buttons"]["backtolist"] ?>
+                </a>
+                <form class="application-form">
+                    <div class="info-block">
+                        <strong><?= $GLOBALS["locale"]["userPage"]["applicationInfo"]["manager"] ?></strong>
+                        <div class="row-block">
+                            <?php if (isset($managerData)) { ?>
+                                <img style="width: 32px; height: 32px; border-radius: 10px;" src="../api/avatar?id=<?= $applicationData->authorId ?>">
+                            <?php } ?>
+                                <p style="margin-left: 10px"><?= isset($managerData["username"]) ? $managerData["username"] : $GLOBALS["locale"]["errors"]["nullField"] ?></p>
+                        </div>
+
+                        <strong><?= $GLOBALS["locale"]["userPage"]["applicationInfo"]["status"] ?></strong>
+                        <div class="row-block">
+                            <?php 
+                            $statusInfo = $applicationData->getStatus();
+                            if ($statusInfo) { ?>
+                                <p style="color: <?= $statusInfo["color"] ?>;"><?= $GLOBALS["locale"]["userPage"]["statuses"][$statusInfo["name"]] ?></p>
+                            <?php } else { ?>
+                                <p style="color: gray"><?= $GLOBALS["locale"]["errors"]["noStatus"] ?></p>
+                            <?php } ?>
+                        </div>
+
+                        <div class="info-block">
+                            <strong><?= $GLOBALS["locale"]["userPage"]["applicationInfo"]["text"] ?></strong>
+                            <p><?= $applicationData->text ?></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <?php } 
+        } else { ?>
+            <form class="application-form flex-centerized">
+                <svg width="128" height="128" style="margin-bottom: 20px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22ZM16.0303 8.96967C16.3232 9.26256 16.3232 9.73744 16.0303 10.0303L11.0303 15.0303C10.7374 15.3232 10.2626 15.3232 9.96967 15.0303L7.96967 13.0303C7.67678 12.7374 7.67678 12.2626 7.96967 11.9697C8.26256 11.6768 8.73744 11.6768 9.03033 11.9697L10.5 13.4393L14.9697 8.96967C15.2626 8.67678 15.7374 8.67678 16.0303 8.96967Z" fill="#e10000"></path> </g></svg>
+
+                <p><?= $GLOBALS["locale"]["sections"]["applicationconfirm"]["success_message"] ?></p>
+
+                <div class="buttons-block" style="margin-top: 10px;">
+                    <a href="../user" class="small-primary-button"><?= $GLOBALS["locale"]["buttons"]["continue"] ?></a>
+                </div>
+            </form>
         <?php } ?>
         </section>
-        <?php }
+        <?php 
+        }
     }
 } else { ?>
     <section class="user-info">
@@ -233,7 +317,22 @@
                             <th><?= $GLOBALS["locale"]["userPage"]["account"]["appTable"]["manager"] ?></th>
                             <th><?= $GLOBALS["locale"]["userPage"]["account"]["appTable"]["status"] ?></th>
                             <th><?= $GLOBALS["locale"]["userPage"]["account"]["appTable"]["date"] ?></th>
+                            <th style="width: 80px"></th>
                         </tr>
+
+                        <?php
+                        foreach ($applications as $application) {
+                        ?>
+                        <tr>
+                            <td><?= $application["id"] ?></td>
+                            <td><?= $application["user_manager"] ? $application["name"] : $GLOBALS["locale"]["errors"]["nullField"] ?></td>
+                            <td><?= $application["status_name"] ? $GLOBALS["locale"]["userPage"]["statuses"][$application["status_name"]] : $GLOBALS["locale"]["errors"]["noStatus"] ?></td>
+                            <td><?= date("d.m.Y", $application["creation_date"]) ?></td>
+                            <td><a class="small-primary-button" href="/user/application?id=<?= $application["id"] ?>"><?= $GLOBALS["locale"]["buttons"]["view"] ?></a></td>
+                        </tr>
+                        <?php
+                        }
+                        ?>
                     </table>
                 </div>
             </div>

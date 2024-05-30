@@ -89,6 +89,31 @@ span.red-text {
     background-color: var(--secondary-color-02);
 }
 
+textarea {
+    outline: none;
+    border: none;
+
+    width: 100%;
+    resize: none;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    background-color: var(--secondary-color-04);
+    border-radius: 10px;
+
+    padding: 10px;
+}
+
+select {
+    background-color: var(--secondary-color-04);
+    border: none;
+    border-radius: 10px;
+
+    outline: none;
+    padding: 10px;
+}
+
 body {
     background-color: var(--secondary-color-01);
 
@@ -107,6 +132,27 @@ a:hover {
 header {
     animation-name: appearAnimation;
     animation-duration: 0.5s;
+}
+
+table, th, td {
+    text-align: center;
+    border: 10px transparent;
+
+    text-align: center;
+}
+
+tr td {
+    display: flex;
+    align-items: center;
+
+    text-align: center;
+}
+
+td, th {
+    text-align: center;
+    vertical-align: middle;
+
+    padding: 10px;
 }
 
 header nav.navigation {
@@ -242,9 +288,6 @@ table tbody tr {
 
 table tbody :first-child th {
     font-weight: bold;
-    margin-right: 10px;
-    margin-left: 10px;
-
     border-bottom: 2px #000000;
 }
 

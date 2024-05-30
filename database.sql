@@ -43,8 +43,8 @@ CREATE TABLE IF NOT EXISTS `applications` (
     PRIMARY KEY (`id`)
 );
 
-INSERT INTO `role`(`name`, `admin_right`, `applications_list`) VALUES('administrator', '1', '1');
-INSERT INTO `role`(`name`, `admin_right`, `applications_list`) VALUES('manager', '0', '1');
-INSERT INTO `applications_statuses`(`name`, `color`) VALUES('waiting', '#ffd500');
-INSERT INTO `applications_statuses`(`name`, `color`) VALUES('desclined', '#FF0000');
-INSERT INTO `applications_statuses`(`name`, `color`) VALUES('success', '#00FF00')
+INSERT INTO `role`(`name`, `admin_rights`, `applications_list`) VALUES('administrator', '1', '1');
+INSERT INTO `role`(`name`, `admin_rights`, `applications_list`) VALUES('manager', '0', '1');
+INSERT INTO `application_statuses`(`name`, `color`) VALUES('waiting', '#ffd500');
+INSERT INTO `application_statuses`(`name`, `color`) VALUES('desclined', '#FF0000');
+INSERT INTO `application_statuses`(`name`, `color`) VALUES('success', '#00FF00');

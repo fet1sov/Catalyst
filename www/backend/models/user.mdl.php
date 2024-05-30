@@ -39,7 +39,7 @@ class User extends DatabaseEntity {
                 $this->password = $row["password"];
                 $this->company = $row["company"];
                 $this->email = $row["email"];
-                $this->roleid = $row["role_id"] ? $row["role_id"] : 0;
+                $this->roleid = $row["role_id"];
             } else {
                 if (!count($userData))
                 {
@@ -73,13 +73,27 @@ class User extends DatabaseEntity {
         }
     }
 
-    public function getPermissions() : array {
+    public function getPermissions() : ?array {
         $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT `role`.`admin_rights`, `role`.`applications_list` FROM `user` INNER JOIN `role` ON `user`.`role_id` = `role`.`id` WHERE `user`.`id`=?");
-        $stmt->bind_param('i', $this->id);
+        $stmt->bind_param('i', $this->roleid);
         $stmt->execute();
 
         $rightResult = $stmt->get_result();
         return $rightResult->fetch_array(MYSQLI_ASSOC);
+    }
+
+    public static function getFullList($condition = "") {
+        $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT `role`.`admin_rights`, `role`.`applications_list`, `user`.* FROM `user` LEFT JOIN `role` ON `user`.`role_id` = `role`.`id` " . $condition);
+        $stmt->execute();
+
+        $userList = array();
+
+        $userResult = $stmt->get_result();
+        while ($row = $userResult->fetch_array(MYSQLI_ASSOC)) {
+            array_push($userList, $row);
+        }
+
+        return $userList;
     }
 
     public function saveData() : void
