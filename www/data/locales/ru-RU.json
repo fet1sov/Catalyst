@@ -23,7 +23,8 @@
             }
         },
         "nullField": "Не назначено",
-        "noStatus": "В процессе"
+        "noStatus": "В процессе",
+        "noApplications": "Не отправлено ни одной заявки"
     },
     "success": {
         "settings": {
@@ -85,7 +86,9 @@
                 },
                 "repeatPassword": {
                     "placeholder": "Повторите новый пароль"
-                }
+                }, 
+
+                "header02": "Язык"
             }
         },
         "applicationInfo": {
@@ -152,7 +155,10 @@
         "backtolist": "Назад к списку",
         "update": "Обновить",
 
-        "delete": "Удалить"
+        "delete": "Удалить",
+        "edit": "Отредактировать",
+
+        "recall": "Отозвать"
     },
     "successMessages": {
         "updatedData": "Заявка успешно обновлена"

@@ -18,16 +18,23 @@ if (!in_array($ip, ["localhost", "127.0.0.1"]))
 
 
     $locale_data = "";
-    if (isset($geoDetails->country))
+
+    if (!isset($_COOKIE["locale"]))
     {
-        if (in_array($geoDetails->country, $regionLocales["Russian"]["regions"])) {
-            $locale_data = file_get_contents(realpath(__DIR__ . '/../..') . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . $regionLocales["Russian"]["localeCode"] . '.json');
+        if (isset($geoDetails->country))
+        {
+            if (in_array($geoDetails->country, $regionLocales["Russian"]["regions"])) {
+                $locale_data = file_get_contents(realpath(__DIR__ . '/../..') . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . $regionLocales["Russian"]["localeCode"] . '.json');
+            } else {
+                $locale_data = file_get_contents(realpath(__DIR__ . '/../..') . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . $regionLocales["English"]["localeCode"] . '.json');
+            }
         } else {
-            $locale_data = file_get_contents(realpath(__DIR__ . '/../..') . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . $regionLocales["English"]["localeCode"] . '.json');
+            $locale_data = file_get_contents(realpath(__DIR__ . '/../..') . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . $regionLocales["Russian"]["localeCode"] . '.json');
         }
     } else {
-        $locale_data = file_get_contents(realpath(__DIR__ . '/../..') . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . $regionLocales["Russian"]["localeCode"] . '.json');
+        $locale_data = file_get_contents(realpath(__DIR__ . '/../..') . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . $_COOKIE["locale"] . '.json');
     }
+    
 
     $GLOBALS["locale"] = json_decode($locale_data, JSON_OBJECT_AS_ARRAY);
 } else {

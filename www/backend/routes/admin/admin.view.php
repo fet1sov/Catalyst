@@ -1,6 +1,9 @@
 <section>
 
-<?php if (!isset($category)) { ?>
+<?php if (!isset($category)) { 
+        if ($applications && count($applications)) {?>
+
+
     <table align="center" >
             <tr>
                 <th><?= $GLOBALS["locale"]["userPage"]["account"]["appTable"]["id"] ?></th>
@@ -12,15 +15,14 @@
             </tr>
 
             <?php
-            if ($applications)
-            { 
-                foreach ($applications as $application) { ?>
+            foreach ($applications as $application) { ?>
             <tr> <td><?= $application["id"] ?></td> <td><img style="width: 32px; height: 32px; border-radius: 10px;" src="/api/avatar?userid=<?= $application["author_id"] ?>"> <?= $application["user_author"] ? $application["user_author"] : $GLOBALS["locale"]["errors"]["nullField"] ?></td> <td><?= $application["user_manager"] ? $application["user_manager"] : $GLOBALS["locale"]["errors"]["nullField"] ?></td> <td><?= $application["status_name"] ? $GLOBALS["locale"]["userPage"]["statuses"][$application["status_name"]] : $GLOBALS["locale"]["errors"]["noStatus"] ?></td> <td><?= date("d.m.Y", $application["creation_date"]) ?></td> <td><a href="/admin/application?id=<?= $application["id"] ?>" class="small-primary-button"><?= $GLOBALS["locale"]["buttons"]["view"] ?></td>
             </tr>
-            <?php 
-                }
-            } ?>
+            <?php } ?>
     </table>
+    <?php } else { ?>
+        <p><?= $GLOBALS["locale"]["errors"]["noApplications"] ?></p>
+    <?php } ?>
 <?php } else {
     switch ($category) {
         case "application": { ?>
@@ -79,7 +81,7 @@
                         <div class="info-block">
                             <strong><?= $GLOBALS["locale"]["userPage"]["applicationInfo"]["author"] ?></strong>
                             <div class="row-block">
-                                <img style="width: 32px; height: 32px; border-radius: 10px;" src="../api/avatar?id=<?= $applicationData->authorId ?>">
+                                <img style="width: 32px; height: 32px; border-radius: 10px;" src="../api/avatar?userid=<?= $applicationData->authorId ?>">
                                 <p style="margin-left: 10px"><?= $authorData["username"] ?></p>
                             </div>
                         </div>
@@ -87,6 +89,7 @@
                         <div class="info-block">
                             <strong><?= $GLOBALS["locale"]["userPage"]["applicationInfo"]["contact"] ?></strong>
                             <p><?= $authorData["email"] ?></p>
+                            <p><?= $authorData["company"] ?></p>
                         </div>
 
                         <div class="info-block collumn-block">
@@ -126,7 +129,7 @@
 
                     <div class="info-block row-block">
                         <button name="action" value="update" class="small-primary-button"><?= $GLOBALS["locale"]["buttons"]["update"] ?></button>
-                        <button name="action" value="cancel" class="small-primary-button"><?= $GLOBALS["locale"]["buttons"]["cancel"] ?></button>
+                        <button name="action" value="cancel" class="small-primary-button"><?= $GLOBALS["locale"]["buttons"]["delete"] ?></button>
                     </div>
 
                     <p style="text-align: center; color: #00d907;"><?= isset($message) ? $message : "" ?></p>

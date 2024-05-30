@@ -23,7 +23,8 @@
             }
         },
         "nullField": "Not clarified",
-        "noStatus": "In process"
+        "noStatus": "In process",
+        "noApplications": "No applications sent yet"
     },
     "success": {
         "settings": {
@@ -85,7 +86,9 @@
                 },
                 "repeatPassword": {
                     "placeholder": "Repeat new password"
-                }
+                },
+
+                "header02": "Language"
             }
         },
         "applicationInfo": {
@@ -152,7 +155,10 @@
         "backtolist": "Back to list",
         "update": "Update",
 
-        "delete": "Delete"
+        "delete": "Delete",
+        "edit": "Edit",
+
+        "recall": "Recall"
     },
     "successMessages": {
         "updatedData": "Application was updated"
