@@ -38,9 +38,11 @@ if (isset($params['category'])) {
                 {
                     $application->status = intval($_POST["statuses"]);
                     $application->managerId = intval($_POST["manager"]);
-
                     $application->saveData();
+
+                    $message = $GLOBALS["locale"]["successMessages"]["updatedData"];
                 } else {
+                    header('Location: /admin');
                     $application->remove();
                 }
                 
@@ -54,6 +56,7 @@ if (isset($params['category'])) {
                         "authorData" => $application->getAuthorInfo(),
                         "managerList" => User::getFullList("WHERE `role`.`admin_rights`=1"),
                         "statusList" => Application::getStatusList(),
+                        "message" => strlen($message) ? $message : ""
                     ]
                 ]);
             }

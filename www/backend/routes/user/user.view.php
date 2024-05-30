@@ -138,17 +138,37 @@
                         <ul>
                             <?php foreach($GLOBALS["locale"]["userPage"]["settings"]["settingsNavigation"] as $settingKey => $settingSection) { ?>
                                 <li icon="<?= $settingKey ?>">
-                                    <?= $settingSection ?>
+                                    <a href="/user/settings?category=<?= $settingKey ?>"><?= $settingSection ?></a>
                                 </li>
                             <?php } ?>
                         </ul>
                     </div>
 
+                    <?php 
+                    if (isset($_GET["category"])) {
+                        switch ($_GET["category"]) { 
+                            case "security": { ?>
+                                <?php
+                                Renderer::includeTemplate("frontend/components/settings/securityBlock.php", [
+                                    "messageUpdate" => isset($messageUpdate) ? $messageUpdate : false,
+                                ]);
+                                break;
+                                ?>
+
+                        <?php  } 
+                            } 
+                    } ?>
+
+                    
                     <?php
+                    if (!isset($_GET["category"]) || 
+                    isset($_GET["category"]) && $_GET["category"] == "profile") {
                     Renderer::includeTemplate("frontend/components/settings/settingsBlock.php", [
                         "messageUpdate" => isset($messageUpdate) ? $messageUpdate : false,
                         "userData" => $userData
                     ]);
+                    }
+
                     break;
                     ?>
                 </section>
@@ -290,7 +310,7 @@
                 <? } ?>
             </div>
 
-            <div id="profileInfo" class="lk-block" style="display: none;">
+            <div id="profileInfo" class="lk-block" style="display: none; height: 150px;">
                 <h2><?= $GLOBALS["locale"]["titles"]["profileTitle"] ?></h2>
                 <div class="profile-block">
                     <img class="small-avatar" style="width: 48px; height: 48px;" src="/api/avatar?userid=<?= unserialize($_SESSION["userData"])->getId(); ?>">
@@ -325,7 +345,7 @@
                         ?>
                         <tr>
                             <td><?= $application["id"] ?></td>
-                            <td><?= $application["user_manager"] ? $application["name"] : $GLOBALS["locale"]["errors"]["nullField"] ?></td>
+                            <td><?= $application["user_manager"] ? $application["user_manager"] : $GLOBALS["locale"]["errors"]["nullField"] ?></td>
                             <td><?= $application["status_name"] ? $GLOBALS["locale"]["userPage"]["statuses"][$application["status_name"]] : $GLOBALS["locale"]["errors"]["noStatus"] ?></td>
                             <td><?= date("d.m.Y", $application["creation_date"]) ?></td>
                             <td><a class="small-primary-button" href="/user/application?id=<?= $application["id"] ?>"><?= $GLOBALS["locale"]["buttons"]["view"] ?></a></td>

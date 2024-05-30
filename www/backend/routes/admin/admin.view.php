@@ -92,7 +92,7 @@
                         <div class="info-block collumn-block">
                             <strong><?= $GLOBALS["locale"]["userPage"]["applicationInfo"]["assignManager"] ?></strong>
                             <select name="manager" id="manager">
-                                <option selected><?= $GLOBALS["locale"]["errors"]["nullField"] ?></option>
+                                <option value="-1" selected><?= $GLOBALS["locale"]["errors"]["nullField"] ?></option>
                                 <?php 
                                 foreach ($managerList as $manager) {
                                     if ($applicationData->managerId == $manager["id"]) { ?>
@@ -128,6 +128,8 @@
                         <button name="action" value="update" class="small-primary-button"><?= $GLOBALS["locale"]["buttons"]["update"] ?></button>
                         <button name="action" value="cancel" class="small-primary-button"><?= $GLOBALS["locale"]["buttons"]["cancel"] ?></button>
                     </div>
+
+                    <p style="text-align: center; color: #00d907;"><?= isset($message) ? $message : "" ?></p>
                 </form>
             </div>
             

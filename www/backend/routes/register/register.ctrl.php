@@ -1,5 +1,11 @@
 <?php
 
+if (isset($_SESSION["userData"]))
+{
+    header("Location: /user");
+    die();
+}
+
 if ($_SERVER['REQUEST_METHOD'] == "POST")
 {
     if ($_POST["password"] == $_POST["repeatpassword"])

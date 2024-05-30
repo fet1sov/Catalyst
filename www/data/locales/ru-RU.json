@@ -74,6 +74,18 @@
                 "companyName": {
                     "placeholder": "Название компании"
                 }
+            },
+            "password": {
+                "header": "Безопастность",
+                "oldPassword": {
+                    "placeholder": "Старый пароль"
+                },
+                "newPassword": {
+                    "placeholder": "Новый пароль"
+                },
+                "repeatPassword": {
+                    "placeholder": "Повторите новый пароль"
+                }
             }
         },
         "applicationInfo": {
@@ -141,6 +153,9 @@
         "update": "Обновить",
 
         "delete": "Удалить"
+    },
+    "successMessages": {
+        "updatedData": "Заявка успешно обновлена"
     },
     "footer": {
         "phone": "Телефон",

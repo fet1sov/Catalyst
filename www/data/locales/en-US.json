@@ -74,6 +74,18 @@
                 "companyName": {
                     "placeholder": "Company name"
                 }
+            },
+            "password": {
+                "header": "Security",
+                "oldPassword": {
+                    "placeholder": "Old password"
+                },
+                "newPassword": {
+                    "placeholder": "New password"
+                },
+                "repeatPassword": {
+                    "placeholder": "Repeat new password"
+                }
             }
         },
         "applicationInfo": {
@@ -141,6 +153,9 @@
         "update": "Update",
 
         "delete": "Delete"
+    },
+    "successMessages": {
+        "updatedData": "Application was updated"
     },
     "footer": {
         "phone": "Phone",

@@ -57,7 +57,7 @@ class Application extends DatabaseEntity {
     }
 
     public static function getFullList() {
-        $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT `applications`.*, `user`.`username` AS `user_author`, `manager_user`.`username` AS `user_manager`, `application_statuses`.`name` AS `status_name` FROM `applications` LEFT JOIN `application_statuses` ON `applications`.`status` = `application_statuses`.`id` LEFT JOIN `user` ON `applications`.`author_id` = `user`.`id` LEFT JOIN `user` manager_user ON `applications`.`manager_id`=`user`.`id`");
+        $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT `applications`.*, `user`.`username` AS `user_author`, `manager_user`.`username` AS `user_manager`, `application_statuses`.`name` AS `status_name` FROM `applications` LEFT JOIN `application_statuses` ON `applications`.`status` = `application_statuses`.`id` INNER JOIN `user` ON `applications`.`author_id` = `user`.`id` LEFT JOIN `user` manager_user ON `applications`.`manager_id`=`manager_user`.`id`");
         $stmt->execute();
 
         $applicationsList = array();
@@ -71,7 +71,7 @@ class Application extends DatabaseEntity {
     }
 
     public static function fetchByUserId($userID) {
-        $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT `applications`.*, `user`.`username` AS `user_author`, `manager_user`.`username` AS `user_manager`, `application_statuses`.`name` AS `status_name` FROM `applications` LEFT JOIN `application_statuses` ON `applications`.`status` = `application_statuses`.`id` LEFT JOIN `user` ON `applications`.`author_id` = `user`.`id` LEFT JOIN `user` manager_user ON `applications`.`manager_id`=`user`.`id` WHERE `applications`.`author_id`=?");
+        $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT `applications`.*, `user`.`username` AS `user_author`, `manager_user`.`username` AS `user_manager`, `application_statuses`.`name` AS `status_name` FROM `applications` LEFT JOIN `application_statuses` ON `applications`.`status` = `application_statuses`.`id` LEFT JOIN `user` ON `applications`.`author_id` = `user`.`id` LEFT JOIN `user` manager_user ON `applications`.`manager_id`=`manager_user`.`id` WHERE `applications`.`author_id`=?");
         $stmt->bind_param('i', $userID);
         $stmt->execute();
 
@@ -134,16 +134,29 @@ class Application extends DatabaseEntity {
 
     public function saveData() : void
     {
-        $stmt = $GLOBALS["dbAdapter"]->prepare("UPDATE `applications` SET `author_id`=?, `manager_id`=?, `status`=?, `text`=? WHERE `id`=?");
-        $stmt->bind_param(
-            'iiisi',
-            $this->authorId,
-            $this->managerId,
-            $this->status,
-            $this->text,
-            $this->id
-        );
-        $stmt->execute();
+        if ($this->managerId == -1)
+        {
+            $stmt = $GLOBALS["dbAdapter"]->prepare("UPDATE `applications` SET `author_id`=?, `status`=?, `text`=? WHERE `id`=?");
+            $stmt->bind_param(
+                'iisi',
+                $this->authorId,
+                $this->status,
+                $this->text,
+                $this->id
+            );
+            $stmt->execute();
+        } else {
+            $stmt = $GLOBALS["dbAdapter"]->prepare("UPDATE `applications` SET `author_id`=?, `manager_id`=?, `status`=?, `text`=? WHERE `id`=?");
+            $stmt->bind_param(
+                'iiisi',
+                $this->authorId,
+                $this->managerId,
+                $this->status,
+                $this->text,
+                $this->id
+            );
+            $stmt->execute();
+        }
     }
 
     public function remove() : void
