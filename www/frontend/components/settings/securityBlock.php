@@ -153,8 +153,8 @@
 
             <div class="settings-row">
                 <select id="language-input" name="language-input">
-                    <option value="en-US" <?= $_COOKIE["locale"] ? "selected" : "" ?>>English</option>
-                    <option value="ru-RU" <?= $_COOKIE["locale"] ? "selected" : "" ?>>Русский</option>
+                    <option value="en-US" <?= isset($_COOKIE["locale"]) && $_COOKIE["locale"] ? "selected" : "" ?>>English</option>
+                    <option value="ru-RU" <?= isset($_COOKIE["locale"]) && $_COOKIE["locale"] ? "selected" : "" ?>>Русский</option>
                 </select>
             </div>
 
