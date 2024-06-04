@@ -1,5 +1,11 @@
 <?php
 
+/**
+*   application.php
+*   Entity model of advertisment applications
+*
+*   @author fet1sov <prodaugust21@gmail.com>
+*/
 class Application extends DatabaseEntity {
     public $id = 0;
     public $authorId = 0;
@@ -7,6 +13,22 @@ class Application extends DatabaseEntity {
     public $text = "";
     public $status = 0;
 
+    /**
+    * Creates the object of applications
+    * If ID will be equal zero - model will create a new row
+    * with applicationData inside
+    * @example
+    * Creating object with a new Application
+    * $application = new Application(0, [
+    *     "author_id" => "1",
+    *     "manager_id" => null,
+    *     "text" => "EXAMPLE TEXT",
+    *     "status" => "1"
+    * ]);
+    *
+    * Creating object with a existing Application
+    * $application = new Application(5);
+    */
     public function __construct($id = 0, $applicationData = array()) {
         $this->id = $id;
 
@@ -70,6 +92,10 @@ class Application extends DatabaseEntity {
         return $applicationsList;
     }
 
+    /**
+    * Getting user applications by indetifier (id)
+    * @param int $userID User ID
+    */
     public static function fetchByUserId($userID) {
         $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT `applications`.*, `user`.`username` AS `user_author`, `manager_user`.`username` AS `user_manager`, `application_statuses`.`name` AS `status_name` FROM `applications` LEFT JOIN `application_statuses` ON `applications`.`status` = `application_statuses`.`id` LEFT JOIN `user` ON `applications`.`author_id` = `user`.`id` LEFT JOIN `user` manager_user ON `applications`.`manager_id`=`manager_user`.`id` WHERE `applications`.`author_id`=?");
         $stmt->bind_param('i', $userID);
@@ -85,11 +111,24 @@ class Application extends DatabaseEntity {
         return $applicationsList;
     }
 
+    /**
+    * Updates application status by indetifier (id)
+    * @param int $statusID Status ID
+    */
     public function setStatus($statusID) : void 
     {
-        
+        $stmt = $GLOBALS["dbAdapter"]->prepare("UPDATE `applications` SET `status`=? WHERE `id`=?");
+        $stmt->bind_param(
+            'ii',
+            $this->status,
+            $this->id
+        );
+        $stmt->execute();
     }
 
+    /**
+    * Getting current status information
+    */
     public function getStatus() : ?array {
         $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT * FROM `application_statuses` WHERE `id`=?");
         $stmt->bind_param('i', $this->status);
@@ -99,6 +138,10 @@ class Application extends DatabaseEntity {
         return $statusResult->fetch_array(MYSQLI_ASSOC);
     }
 
+    /**
+    * Static method which returns
+    * All status list
+    */
     public static function getStatusList() : ?array
     {
         $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT * FROM `application_statuses`");
@@ -114,6 +157,9 @@ class Application extends DatabaseEntity {
         return $statusesList;
     }
 
+    /**
+    * Getting all user data by author indetifier (id)
+    */
     public function getAuthorInfo() : ?array {
         $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT * FROM `user` WHERE `id`=?");
         $stmt->bind_param('i', $this->authorId);
@@ -123,6 +169,9 @@ class Application extends DatabaseEntity {
         return $userResult->fetch_array(MYSQLI_ASSOC);
     }
 
+    /**
+    * Getting all user data by manager indetifier (id)
+    */
     public function getManagerInfo() : ?array {
         $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT * FROM `user` WHERE `id`=?");
         $stmt->bind_param('i', $this->managerId);
@@ -132,6 +181,9 @@ class Application extends DatabaseEntity {
         return $userResult->fetch_array(MYSQLI_ASSOC);
     }
 
+    /**
+    * Method which updates all attribute of application
+    */
     public function saveData() : void
     {
         if ($this->managerId == -1)
@@ -159,6 +211,9 @@ class Application extends DatabaseEntity {
         }
     }
 
+    /**
+    * Removes the application object from the database
+    */
     public function remove() : void
     {
         $stmt = $GLOBALS["dbAdapter"]->prepare("DELETE FROM `applications` WHERE `id`=?");
