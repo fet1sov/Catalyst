@@ -14,6 +14,23 @@ class User extends DatabaseEntity {
     public $email = "";
     public $roleid = 0;
 
+    /**
+    * Creates the object of User
+    * If ID will be equal zero - model will create a new row
+    * with userData inside
+    * @example
+    * Creating object with a new User
+    * $user = new User(0, [
+    *     "username" => "testUser",
+    *     "password" => "awdawdawdawd213413413",
+    *     "company" => "EXAMPLE COMPANY",
+    *     "email" => "test@gmail.com",
+    *     "role_id" => "1"
+    * ]);
+    *
+    * Creating object with a existing User
+    * $user = new User(5);
+    */
     public function __construct($id = 0, $userData = array()) {
         $this->id = $id;
 
@@ -73,6 +90,11 @@ class User extends DatabaseEntity {
         }
     }
 
+    /**
+    * Returns user permissions
+    * Such as admin, application list fetch and etc.
+    * @return array
+    */
     public function getPermissions() : ?array {
         $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT `role`.`admin_rights`, `role`.`applications_list` FROM `user` INNER JOIN `role` ON `user`.`role_id` = `role`.`id` WHERE `user`.`id`=?");
         $stmt->bind_param('i', $this->roleid);
@@ -82,6 +104,10 @@ class User extends DatabaseEntity {
         return $rightResult->fetch_array(MYSQLI_ASSOC);
     }
 
+    /**
+    * Returns all users list which exists in database
+    * @return array
+    */
     public static function getFullList($condition = "") {
         $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT `role`.`admin_rights`, `role`.`applications_list`, `user`.* FROM `user` LEFT JOIN `role` ON `user`.`role_id` = `role`.`id` " . $condition);
         $stmt->execute();
@@ -96,6 +122,9 @@ class User extends DatabaseEntity {
         return $userList;
     }
 
+    /**
+    * Updates user data in database with all object attributes
+    */
     public function saveData() : void
     {
         $stmt = $GLOBALS["dbAdapter"]->prepare("UPDATE `user` SET `username`=?, `password`=?, `company`=?, `email`=? WHERE `id`=?");
