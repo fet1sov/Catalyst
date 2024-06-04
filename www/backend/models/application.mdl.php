@@ -78,6 +78,10 @@ class Application extends DatabaseEntity {
         }
     }
 
+    /**
+    * Getting full list of applications from database
+    * @return array
+    */
     public static function getFullList() {
         $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT `applications`.*, `user`.`username` AS `user_author`, `manager_user`.`username` AS `user_manager`, `application_statuses`.`name` AS `status_name` FROM `applications` LEFT JOIN `application_statuses` ON `applications`.`status` = `application_statuses`.`id` INNER JOIN `user` ON `applications`.`author_id` = `user`.`id` LEFT JOIN `user` manager_user ON `applications`.`manager_id`=`manager_user`.`id`");
         $stmt->execute();
@@ -128,6 +132,7 @@ class Application extends DatabaseEntity {
 
     /**
     * Getting current status information
+    * @return array
     */
     public function getStatus() : ?array {
         $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT * FROM `application_statuses` WHERE `id`=?");
@@ -141,6 +146,7 @@ class Application extends DatabaseEntity {
     /**
     * Static method which returns
     * All status list
+    * @return array
     */
     public static function getStatusList() : ?array
     {
@@ -159,6 +165,7 @@ class Application extends DatabaseEntity {
 
     /**
     * Getting all user data by author indetifier (id)
+    * @return array
     */
     public function getAuthorInfo() : ?array {
         $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT * FROM `user` WHERE `id`=?");
@@ -171,6 +178,7 @@ class Application extends DatabaseEntity {
 
     /**
     * Getting all user data by manager indetifier (id)
+    * @return array
     */
     public function getManagerInfo() : ?array {
         $stmt = $GLOBALS["dbAdapter"]->prepare("SELECT * FROM `user` WHERE `id`=?");
