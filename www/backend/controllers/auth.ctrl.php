@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
             header("Location: /user");
         } else {
             Renderer::includeTemplate("frontend/components/layout.php", [
-                "layout_path" => ROUTE_ROOT . "auth/auth.view.php",
+                "layout_path" => FRONTEND_VIEWS . "auth.view.php",
                 "layout_data" => [
                     "error_message" => [
                         "message" => $GLOBALS["locale"]["errors"]["wrongAuthData"]
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
         }
     } else {
         Renderer::includeTemplate("frontend/components/layout.php", [
-            "layout_path" => ROUTE_ROOT . "auth/auth.view.php",
+            "layout_path" => FRONTEND_VIEWS . "auth.view.php",
             "layout_data" => [
                 "error_message" => [
                     "message" => $GLOBALS["locale"]["errors"]["wrongAuthData"]
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
     }
 } else {
     Renderer::includeTemplate("frontend/components/layout.php", [
-        "layout_path" => ROUTE_ROOT . "auth/auth.view.php",
+        "layout_path" => FRONTEND_VIEWS . "auth.view.php",
         "layout_data" => []
     ]);
 }

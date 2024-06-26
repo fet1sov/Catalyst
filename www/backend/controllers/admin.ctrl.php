@@ -21,7 +21,7 @@ if (isset($params['category'])) {
                 $application = new Application(intval($_GET["id"]));
 
                 Renderer::includeTemplate("frontend/components/layout.php", [
-                    "layout_path" => ROUTE_ROOT . "admin/admin.view.php",
+                    "layout_path" => FRONTEND_VIEWS . "admin.view.php",
                     "layout_data" => [
                         "footerShow" => false,
                         "category" => $params['category'],
@@ -48,7 +48,7 @@ if (isset($params['category'])) {
                 
 
                 Renderer::includeTemplate("frontend/components/layout.php", [
-                    "layout_path" => ROUTE_ROOT . "admin/admin.view.php",
+                    "layout_path" => FRONTEND_VIEWS . "admin.view.php",
                     "layout_data" => [
                         "footerShow" => false,
                         "category" => $params['category'],
@@ -64,7 +64,7 @@ if (isset($params['category'])) {
     }
 } else {
     Renderer::includeTemplate("frontend/components/layout.php", [
-        "layout_path" => ROUTE_ROOT . "admin/admin.view.php",
+        "layout_path" => FRONTEND_VIEWS . "admin.view.php",
         "layout_data" => [
             "footerShow" => false,
             "applications" => Application::getFullList()
