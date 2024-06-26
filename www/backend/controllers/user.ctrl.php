@@ -30,7 +30,7 @@ if (isset($params['category'])) {
                         $userData->saveData();
 
                         Renderer::includeTemplate("frontend/components/layout.php", [
-                            "layout_path" => ROUTE_ROOT . "user/user.view.php",
+                            "layout_path" => FRONTEND_VIEWS . "user.view.php",
                             "layout_data" => [
                                 "category" => $params['category'],
                                 "messageUpdate" => true,
@@ -58,7 +58,7 @@ if (isset($params['category'])) {
                         }
 
                         Renderer::includeTemplate("frontend/components/layout.php", [
-                            "layout_path" => ROUTE_ROOT . "user/user.view.php",
+                            "layout_path" => FRONTEND_VIEWS . "user.view.php",
                             "layout_data" => [
                                 "category" => $params['category'],
                                 "messageUpdate" => $messageUpdate,
@@ -68,7 +68,7 @@ if (isset($params['category'])) {
                     }
                 } else {
                     Renderer::includeTemplate("frontend/components/layout.php", [
-                        "layout_path" => ROUTE_ROOT . "user/user.view.php",
+                        "layout_path" => FRONTEND_VIEWS . "user.view.php",
                         "layout_data" => [
                             "category" => $params['category'],
                             "footerShow" => false,
@@ -100,7 +100,7 @@ if (isset($params['category'])) {
                     header("Location: /user");
                 } else {
                     Renderer::includeTemplate("frontend/components/layout.php", [
-                        "layout_path" => ROUTE_ROOT . "user/user.view.php",
+                        "layout_path" => FRONTEND_VIEWS . "user.view.php",
                         "layout_data" => [
                             "category" => $params['category'],
                             "footerShow" => false,
@@ -113,7 +113,7 @@ if (isset($params['category'])) {
                 if ($_SERVER['REQUEST_METHOD'] == "GET")
                 {
                     Renderer::includeTemplate("frontend/components/layout.php", [
-                        "layout_path" => ROUTE_ROOT . "user/user.view.php",
+                        "layout_path" => FRONTEND_VIEWS . "user.view.php",
                         "layout_data" => [
                             "category" => $params['category'],
                             "applicationData" => $application,
@@ -131,7 +131,7 @@ if (isset($params['category'])) {
                         $application = new Application(intval($_GET["id"]));
 
                         Renderer::includeTemplate("frontend/components/layout.php", [
-                            "layout_path" => ROUTE_ROOT . "user/user.view.php",
+                            "layout_path" => FRONTEND_VIEWS . "user.view.php",
                             "layout_data" => [
                                 "category" => $params['category'],
                                 "applicationData" => $application,
@@ -151,7 +151,7 @@ if (isset($params['category'])) {
     }
 } else {
     Renderer::includeTemplate("frontend/components/layout.php", [
-        "layout_path" => ROUTE_ROOT . "user/user.view.php",
+        "layout_path" => FRONTEND_VIEWS . "user.view.php",
         "layout_data" => [
             "applications" => Application::fetchByUserId(unserialize($_SESSION["userData"])->id),
             "footerShow" => false
