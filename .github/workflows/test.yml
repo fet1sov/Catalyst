@@ -31,11 +31,11 @@ jobs:
           php_version: 8.2
           path: www/
           report: csv
-          report_file: reports/code_quality.csv
+          report_file: code_quality.csv
 
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v4
         with:
           name: quality_report
-          path: reports/code_quality.csv
+          path: code_quality.csv
           retention-days: 5
