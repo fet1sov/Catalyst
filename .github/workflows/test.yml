@@ -30,4 +30,12 @@ jobs:
         with:
           php_version: 8.2
           path: www/
-          standard: phpcs.xml
+          report: csv
+          report_file: reports/code_quality.csv
+
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality_report
+          path: reports/code_quality.csv
+          retention-days: 5
