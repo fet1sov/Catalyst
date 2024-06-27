@@ -32,14 +32,14 @@ jobs:
           curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
           php phpcs.phar --version
 
-      - uses: Novusvetus/action-php_codesniffer@1.2.17
+      - name: PHP Code Sniffer
+        uses: php-actions/phpcs@v1
         with:
-          files: "**.php"
-          scan_all: true
-          phpcs_path: php phpcs.phar
+          php_version: 8.2
+          path: www/
           standard: phpcs.xml
           report: csv
-          report_file: code_quality.csv
+          report_file: code_quality
 
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v4
