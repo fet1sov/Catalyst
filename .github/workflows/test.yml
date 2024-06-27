@@ -1,19 +1,18 @@
-name: PHP Syntax Tests
+name: Test
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "**" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "**" ]
 
 permissions:
   contents: read
 
 jobs:
   syntax-check:
-
     runs-on: ubuntu-latest
-
+    
     steps:
     - uses: actions/checkout@v3
 
