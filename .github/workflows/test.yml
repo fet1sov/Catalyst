@@ -25,9 +25,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Composer install
-        uses: php-actions/composer@v6
-
       - name: PHP Code Sniffer
         uses: php-actions/phpcs@v1
         with:
