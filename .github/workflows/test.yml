@@ -38,3 +38,12 @@ jobs:
           scan_all: true
           phpcs_path: php phpcs.phar
           standard: phpcs.xml
+          report: csv
+          report_file: code_quality.csv
+
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v4
+        with:
+          name: code-quality-report
+          path: code_quality.csv
+          retention-days: 5
