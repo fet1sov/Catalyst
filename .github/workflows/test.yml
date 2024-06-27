@@ -18,3 +18,33 @@ jobs:
 
     - name: Check PHP syntax errors
       uses: overtrue/phplint@9.1.2
+      
+  code-quality-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Install PHP_CodeSniffer
+        run: |
+          curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+          php phpcs.phar --version
+
+      - name: PHP Code Sniffer
+        uses: php-actions/phpcs@v1
+        continue-on-error: true
+        with:
+          php_version: 8.2
+          path: www/
+          standard: phpcs.xml
+          report: csv
+          report_file: code_quality.csv
+
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v4
+        with:
+          name: code-quality-report
+          path: code_quality.csv
+          retention-days: 5
